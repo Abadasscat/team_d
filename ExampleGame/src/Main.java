@@ -5,6 +5,7 @@ import java.io.File;
 public class Main extends JFrame {
 
     private JLabel imageLabel;
+    private String selectedSongPath; // 선택된 노래 경로
     private float currentVolume = -10.0f; // 초기 볼륨 값
 
     public Main() {
@@ -34,12 +35,11 @@ public class Main extends JFrame {
         // 음악 리스트 (JList) 생성
         JList<String> songSelector = new JList<>(songTitles);
         songSelector.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        songSelector.setFont(new Font("Arial", Font.BOLD, 30));
-        songSelector.setFixedCellHeight(130);
+        songSelector.setFont(new Font("Arial", Font.BOLD, 24));
+        songSelector.setFixedCellHeight(150);
 
         // 스크롤 추가
         JScrollPane scrollPane = new JScrollPane(songSelector, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane.setPreferredSize(new Dimension(500, 400)); // 스크롤 창 크기 설정 (크게 조정)
 
         // 이미지 표시를 위한 JLabel 생성
         imageLabel = new JLabel();
@@ -52,10 +52,20 @@ public class Main extends JFrame {
             if (!e.getValueIsAdjusting()) {
                 int selectedIndex = songSelector.getSelectedIndex();
                 if (selectedIndex >= 0) {
-                    String selectedSongPath = songList[selectedIndex];
+                    selectedSongPath = songList[selectedIndex]; // 선택된 노래 경로 저장
                     updateImage(imagePaths[selectedIndex]);
-                    openGameScreen(selectedSongPath); // 선택된 노래로 게임 화면 전환
                 }
+            }
+        });
+
+        // "Start" 버튼 추가
+        JButton startButton = new JButton("Start");
+        startButton.setFont(new Font("Arial", Font.BOLD, 20));
+        startButton.addActionListener(e -> {
+            if (selectedSongPath != null) {
+                openGameScreen(selectedSongPath); // 선택된 노래로 게임 화면 전환
+            } else {
+                JOptionPane.showMessageDialog(this, "먼저 노래를 선택하세요.");
             }
         });
 
@@ -64,11 +74,15 @@ public class Main extends JFrame {
         listPanel.add(new JLabel("Select a Song:", JLabel.CENTER), BorderLayout.NORTH);
         listPanel.add(scrollPane, BorderLayout.CENTER);
 
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(startButton);
+
         JPanel imagePanel = new JPanel(new BorderLayout());
         imagePanel.add(imageLabel, BorderLayout.CENTER);
 
         add(listPanel, BorderLayout.EAST);
         add(imagePanel, BorderLayout.CENTER);
+        add(buttonPanel, BorderLayout.SOUTH);
 
         setVisible(true);
     }
