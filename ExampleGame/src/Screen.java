@@ -29,7 +29,7 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{
 		//Tile.setPosition(540, 0, 250, 350);
 		//duck.setPosition(dim.width, dim.height);
 		
-		duck.setPosition(540, 0, 250, 350);
+		//duck.setPosition(540, 0, 250, 350);
 		addComponentListener(this);
 		
 		setFocusable(true);
@@ -47,6 +47,8 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{
 		this.dim=getSize();
 		this.offScreen=createImage(dim.width, dim.height);
 		this.bg=this.offScreen.getGraphics();
+		
+		duck.setPosition(dim.width-dim.width/3, 0, dim.width/3*1, dim.height/3*2);
 	}
 	
 	public void counting() {
