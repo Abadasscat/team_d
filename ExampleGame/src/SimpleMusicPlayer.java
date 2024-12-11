@@ -5,6 +5,8 @@ import java.io.IOException;
 public class SimpleMusicPlayer {
 
     private Clip audioClip;
+    private FloatControl gainControl; // 볼륨 조정용 FloatControl 객체
+    private float currentVolume = -10.0f; // 초기 볼륨 값 (dB)
 
     public SimpleMusicPlayer(String filePath) {
         loadAudio(filePath);
@@ -29,6 +31,9 @@ public class SimpleMusicPlayer {
             audioClip = AudioSystem.getClip();
             audioClip.open(audioStream);
 
+            // FloatControl 얻기
+            gainControl = (FloatControl) audioClip.getControl(FloatControl.Type.MASTER_GAIN);
+
         } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             e.printStackTrace();
         }
@@ -45,5 +50,25 @@ public class SimpleMusicPlayer {
         if (audioClip != null && audioClip.isRunning()) {
             audioClip.stop();
         }
+    }
+
+    // 볼륨 조정 메서드
+    public void setVolume(float volume) {
+        if (gainControl != null) {
+            // 볼륨 범위 조정
+            float minGain = gainControl.getMinimum();
+            float maxGain = gainControl.getMaximum();
+            // 볼륨을 제한된 범위 내에서 설정
+            float volumeValue = Math.max(minGain, Math.min(maxGain, volume));
+            gainControl.setValue(volumeValue); // 볼륨 값 설정
+            this.currentVolume = volumeValue; // 현재 볼륨 값을 업데이트
+        } else {
+            System.out.println("볼륨 조정이 지원되지 않습니다.");
+        }
+    }
+
+    // 현재 볼륨 값을 반환하는 메서드
+    public float getCurrentVolume() {
+        return currentVolume;
     }
 }
