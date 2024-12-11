@@ -1,5 +1,9 @@
 public class Launcher {
-    public static void main(String[] args) {
-        new Main(); // 메인 창 실행
-    }
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//RhythmGameMain game = new RhythmGameMain();
+		new Main();
+	}
+
 }

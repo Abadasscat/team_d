@@ -1,4 +1,7 @@
-import java.awt.*;
+import java.awt.Canvas;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.event.KeyEvent;
@@ -6,145 +9,161 @@ import java.awt.event.KeyListener;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Screen extends Canvas implements ComponentListener, KeyListener {
-    private Graphics bg;
-    private Image offScreen;
-    private Dimension dim;
+public class Screen extends Canvas implements ComponentListener, KeyListener{
+	private Graphics bg;
+	private Image offScreen;
+	private Dimension dim;
+	
+	private Title title = new Title();
+	private Note note=new Note();
+	private DuckHome home=new DuckHome();
+	private Duck duck=new Duck();
+	//private GamePanel gamepanel = new GamePanel(); // 리듬 게임 추가
+	
+	private int countNumber=0;
+	public int stage = 4;
+	
+	public Screen() {
+		
+		//duck.setPosition(540, 0, 250, 350);
+		//Tile.setPosition(540, 0, 250, 350);
+		//duck.setPosition(dim.width, dim.height);
+		
+		//duck.setPosition(540, 0, 250, 350);
+		addComponentListener(this);
+		
+		setFocusable(true);
+		Timer timer = new Timer();
+		timer.schedule(new TimerTask() {
+			
+			public void run() {
+				repaint();
+				counting();
+			}
+		}, 0, 1);
+	}
 
-    private Title title;       // 타이틀 화면
-    private Note note;         // 노트 관리
-    private DuckHome home;     // 배경 관리
-    private Duck duck;         // 게임 오브젝트
-    private SimpleMusicPlayer musicPlayer; // 음악 플레이어
-
-    private int countNumber = 0; // 타일 카운트
-    private int stage = 0;       // 현재 화면 단계 (0: 타이틀, 4: 리듬 게임)
-
-    public Screen(String songPath) {
-        title = new Title(this);  // 타이틀 화면 관리
-        note = new Note();        // 노트 관리
-        home = new DuckHome();    // 배경
-        duck = new Duck();        // 오브젝트
-        musicPlayer = new SimpleMusicPlayer(songPath); // 선택된 노래 로드
-
-        duck.setPosition(540, 0, 250, 350); // 오브젝트 위치 설정
-
-        // 이벤트 리스너 추가
-        addComponentListener(this);
-        addKeyListener(this);
-        setFocusable(true);
-
-        // 화면 갱신 및 카운트 증가
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            public void run() {
-                repaint();
-                if (stage == 4) { // 리듬 게임 화면에서만 카운트 증가
-                    counting();
-                }
-            }
-        }, 0, 10);
-
-        if (!songPath.isEmpty()) {
-            musicPlayer.play(); // 노래 시작
-            stage = 4; // 바로 리듬 게임 시작
+	private void initBuffer() {
+		this.dim=getSize();
+		this.offScreen=createImage(dim.width, dim.height);
+		this.bg=this.offScreen.getGraphics();
+		
+		duck.setPosition(dim.width-dim.width/3, 0, dim.width/3*1, dim.height/3*2);
+	}
+	
+	public void counting() {
+		this.countNumber++;
+		if (countNumber % 100 == 0) {  // 100번마다 타일 생성
+            int randomX = (int) (Math.random() * dim.width / 3) * (dim.width / 3);
+            note.createTile(randomX, 0, dim.width / 6, 50, 1); // 타일 생성
         }
-    }
+	}
+	
+	public int getCount() {
+		return this.countNumber;
+	}
+	
+	@Override
+	public void paint(Graphics g) {
+		bg.clearRect(0, 0, dim.width, dim.height);
+		
+	    if (stage == 0) {
+	    	title.draw(bg, this);
+	    } else if (stage == 2) {
+	    	//main.draw(bg, this);
+	    	//main.setBounds(0, 0, dim.width, dim.height);
+            //main.paint(bg);
+	    } else if (stage == 3) {
+	    	//renderMusicPlayer(bg);
+	    } else if (stage == 4) {
+	    	note.draw(bg, this);
+	    	home.draw(bg, this);
+	    	duck.draw(bg, this);
+	    } else if (stage == 5) {
+	    	//gamepanel.repaint();
+	    } 
+	    g.drawImage(offScreen, 0, 0, this);
+	}
 
-    private void initBuffer() {
-        this.dim = getSize();
-        this.offScreen = createImage(dim.width, dim.height);
-        this.bg = this.offScreen.getGraphics();
-    }
-
-    public void counting() {
-        countNumber++;
-        if (countNumber % 100 == 0) { // 주기적으로 타일 생성
-            int lane = (int) (Math.random() * 3); // 0, 1, 2 중 랜덤 선택
-            int tileWidth = dim.width / 6;
-            note.createTile(lane * tileWidth, 0, tileWidth, 50, lane);
-        }
-    }
-
-    public int getCount() {
-        return countNumber;
-    }
-
-    public void setStage(int stage) {
+	public void setstage(int stage) {
         this.stage = stage;
     }
 
-    @Override
-    public void paint(Graphics g) {
-        if (bg == null) {
-            initBuffer();
-        }
-        bg.clearRect(0, 0, dim.width, dim.height);
+	@Override
+	public void update(Graphics g) {
+		// TODO Auto-generated method stub
+		paint(g);
+	}
+	
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 
-        if (stage == 0) {
-            // 타이틀 화면 렌더링
-            title.draw(bg, this);
-        } else if (stage == 4) {
-            // 리듬 게임 화면 렌더링
-            note.draw(bg, this);
-            home.draw(bg, this);
-            duck.draw(bg, this);
-        }
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		 if (stage == 4) {
+	            int keyCode = e.getKeyCode();
+	            int lane = -1;
 
-        g.drawImage(offScreen, 0, 0, this);
-    }
+	            // DFJK 키 처리
+	            switch (keyCode) {
+	                case KeyEvent.VK_D: lane = 0; break;  // 왼쪽 라인
+	                case KeyEvent.VK_F: lane = 1; break;  // 왼쪽 중앙
+	                case KeyEvent.VK_J: lane = 2; break;  // 오른쪽 중앙
+	                case KeyEvent.VK_K: lane = 3; break;  // 오른쪽 라인
+	            }
 
-    @Override
-    public void update(Graphics g) {
-        paint(g);
-    }
+	            if (lane != -1 && note.checkHit(lane, dim.width)) {
+	                System.out.println("Hit! Lane: " + lane);
+	            } else if (lane != -1) {
+	                System.out.println("Miss! Lane: " + lane);
+	            }
+	    }
+		
+		
+		
+		if(stage == 0) {
+		}
+		else if (stage == 4) {
+			
+		}
+		else if (stage == 5) {
+			//gamepanel.handleKeyPress(e.getKeyCode());
+		}
+	}
+		
 
-    @Override
-    public void keyPressed(KeyEvent e) {
-        if (stage == 0) {
-            // 타이틀 화면에서 Enter 키로 게임 시작
-            if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                setStage(4); // 리듬 게임 화면으로 전환
-            }
-        } else if (stage == 4) {
-            // 리듬 게임 화면에서 키 입력 처리
-            int keyCode = e.getKeyCode();
-            int lane = -1;
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 
-            // DFJK 키로 노트 판정
-            if (keyCode == KeyEvent.VK_D) lane = 0; // 왼쪽
-            if (keyCode == KeyEvent.VK_F) lane = 1; // 왼쪽 중앙
-            if (keyCode == KeyEvent.VK_J) lane = 2; // 오른쪽 중앙
-            if (keyCode == KeyEvent.VK_K) lane = 3; // 오른쪽
+	@Override
+	public void componentResized(ComponentEvent e) {
+		// TODO Auto-generated method stub
+		initBuffer();
+	}
 
-            if (lane != -1) {
-                if (note.checkHit(lane, dim.width)) {
-                    System.out.println("Hit! Lane: " + lane);
-                } else {
-                    System.out.println("Miss! Lane: " + lane);
-                }
-            }
-        }
-    }
+	@Override
+	public void componentMoved(ComponentEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    @Override
-    public void keyReleased(KeyEvent e) {}
+	@Override
+	public void componentShown(ComponentEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    @Override
-    public void keyTyped(KeyEvent e) {}
+	@Override
+	public void componentHidden(ComponentEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    @Override
-    public void componentResized(ComponentEvent e) {
-        initBuffer();
-    }
-
-    @Override
-    public void componentMoved(ComponentEvent e) {}
-
-    @Override
-    public void componentShown(ComponentEvent e) {}
-
-    @Override
-    public void componentHidden(ComponentEvent e) {}
 }
-
