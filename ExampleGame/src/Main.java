@@ -104,7 +104,7 @@ public class Main extends JFrame {
     private void openGameScreen(String songPath) {
         dispose(); // 현재 창 닫기
         JFrame frame = new JFrame("리듬 게임");
-        Screen screen = new Screen(); // Screen 클래스로 노래 전달
+        Screen screen = new Screen(songPath); // Screen 클래스로 노래 전달
         frame.add(screen);
         frame.setSize(1000, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
