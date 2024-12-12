@@ -26,49 +26,10 @@ public class Duck {
 	private BufferedImage[] duckes7 = new BufferedImage[13];
 	private BufferedImage[] duckes8 = new BufferedImage[11];
 	
-	/*
-	private int x;
-	private int y;
-	private int w;
-	private int h;
-	*/
-	
 	private int x=0;
 	private int y=0;
 	private int w=200;
 	private int h=350;
-	
-	/*
-	public void setPosition(int screenWidth, int screenHeight) {
-	    this.x = screenWidth / 8;           // x는 가로의 8분의 1
-	    this.y = screenHeight / 12;        // y는 세로의 12분의 1
-	    this.w = screenWidth / 4;          // 가로 크기
-	    this.h = screenHeight / 3;         // 세로 크기
-	}
-	*/
-	
-	/*
-	int segmentWidth = screen.getWidth() / 3;
-    
-	for (int i = 1; i < 4; i++) { 
-	     int x = segmentWidth * i; 
-	     int segmentHeight = screen.getHeight() / 6;
-	     g.setColor(Color.white);
-	     
-	     for (int j = 6; j > 4; j--) {
-	         int y = segmentHeight * j;
-	         g.fillRect(x - segmentWidth, y, segmentWidth, 3);  // 두께가 3인 흰색 선 그리기
-	      }
-	  }
-	
-	int segmentWidth2 = screen.getWidth() / 6; 
-		
-	for (int j = 1; j < 6; j++) { 
-		int z = segmentWidth2 * j; 
-		g.setColor(Color.white); 
-		g.drawLine(z, 0, z, screen.getHeight());
-	}
-	*/
 	
 	private int state = 7;
 	

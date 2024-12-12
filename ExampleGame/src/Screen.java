@@ -15,7 +15,7 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{
 	private Image offScreen;
 	private Dimension dim;
 	
-	private Title title = new Title();
+	//private Title title = new Title();
 	private Note note=new Note(getWidth());
 	private DuckHome home=new DuckHome();
 	private Duck duck=new Duck();
@@ -68,7 +68,7 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{
 		bg.clearRect(0, 0, dim.width, dim.height);
 		
 	    if (stage == 0) {
-	    	title.draw(bg, this);
+	    	//title.draw(bg, this);
 	    } else if (stage == 2) {
 	    	//main.draw(bg, this);
 	    	//main.setBounds(0, 0, dim.width, dim.height);
@@ -117,6 +117,9 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{
 	public void componentResized(ComponentEvent e) {
 		// TODO Auto-generated method stub
 		initBuffer();
+		int screenWidth = getWidth();
+	    note.updateLanePositions(screenWidth); // 화면 크기가 변경될 때 타일 위치 업데이트
+		
 	}
 
 	@Override
