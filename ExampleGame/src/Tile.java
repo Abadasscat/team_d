@@ -1,8 +1,11 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 
 class Tile {
     private int x, y, width, height, lane;
+    private Dimension dim;
+
 
     public Tile(int x, int y, int width, int height, int lane) {
         this.x = x;
@@ -26,8 +29,9 @@ class Tile {
     }
     
     
-    public void draw(Graphics g) {
+    public void draw(Graphics g, Screen screen) {
+    	this.dim=screen.getSize();
         g.setColor(new Color(135, 206, 235)); // 하늘색
-        g.fillRect(x, y, width, height);
+        g.fillRect(x, y, dim.width/6*1, height);
     }
 }

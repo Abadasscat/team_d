@@ -98,7 +98,7 @@ public class Note {
 		// 타일 이동 및 그리기
         for (Tile tile : tiles) {
             tile.moveDown(2);  // 속도 2로 이동
-            tile.draw(g);      // 타일 그리기
+            tile.draw(g, screen);      // 타일 그리기
         }
 	}	
 }
