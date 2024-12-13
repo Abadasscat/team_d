@@ -40,6 +40,7 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{
 			
 			public void run() {
 				repaint();
+				counting();
 			}
 		}, 0, 1);
 		
@@ -58,6 +59,9 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{
 		duck.setPosition(dim.width-dim.width/3, 0, dim.width/3*1, dim.height/3*2);
 	}
 	
+	public void counting() {
+		this.countNumber++;
+	}
 	
 	public int getCount() {
 		return this.countNumber;
