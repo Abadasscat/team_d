@@ -15,18 +15,21 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{
 	private Image offScreen;
 	private Dimension dim;
 	
-	//private Title title = new Title();
+	private Title title;
 	private Note note=new Note(getWidth());
 	private DuckHome home=new DuckHome();
 	private Duck duck=new Duck();
 	private TilePattern pattern = new TilePattern(note);
 	private TilePatternManager patternManager = new TilePatternManager(); 
 	private SimpleMusicPlayer musicPlayer; // 선택된 노래 로드; // 음악 플레이어	
+	private Main main;
 	
 	private int countNumber=0;
 	public int stage = 4;
 	
 	public Screen(String songPath) {
+		this.title = new Title(main);
+		
 		// 노래에 맞는 패턴 가져오기
 	    List<TileBeat> tilePattern = patternManager.getPattern(songPath);
 	    pattern.setPattern(tilePattern);

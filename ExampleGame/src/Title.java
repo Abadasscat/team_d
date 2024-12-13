@@ -1,88 +1,58 @@
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Rectangle;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 
-public class Title implements MouseListener{
-	private BufferedImage start;
-	private Screen sc;
-	private int x=500;
-	private int y=400;
-	private int w=200;
-	private int h=100;
-	//private Rectangle startRect; //https://exwest.tistory.com/72 여기 자료 참고
-	
-	public Title() {
-		loadImage();
-		//startRect = new Rectangle(500, 400, 200, 100);  // 이미지 클릭 영역 설정
-	}
-	
-	private void loadImage() {
-		try {
-			//this.duck=ImageIO.read(new File("res/팝콘거위1.png"));
-			this.start=ImageIO.read(new File("res/start.png"));
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	public void draw(Graphics g, Screen screen) {
-		// TODO Auto-generated method stub
-		 // 배경 및 이미지 그리기
-        g.setColor(Color.white);
-        g.fillRect(0, 0, screen.getWidth(), screen.getHeight());
-
-        if (start != null) {
-            g.drawImage(start, x, y, w, h, screen);
+public class Title extends JPanel {
+    private BufferedImage image;
+    private JButton button;
+    private Screen screen;
+    private Main main;
+    
+    public Title(Main main) {
+    	this.main = main;
+    	
+        try {
+            // 이미지 로드
+            image = ImageIO.read(new File("src/Images/main.jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-		
-	}
 
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		int clickX=e.getX();
-		int clickY=e.getY();
-		if (clickX >= x && clickX <= x + w && clickY >= y && clickY <= y + h) {
-            System.out.println("게임 시작 클릭됨!");
-            sc.setstage(4);  // Screen의 stage 변경
-        }
-		
-	}
+        setLayout(null);  // 레이아웃을 null로 설정하여 직접 배치
 
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+        // "Start" 버튼 생성
+        button = new JButton("Start");
+        button.setFont(new Font("Arial", Font.BOLD, 24));  // 버튼 텍스트 폰트 설정
+        button.setForeground(Color.WHITE);  // 텍스트 색상을 흰색으로 설정
+        button.setBackground(new Color(36, 234, 247));  // 버튼 배경 색상 설정 (파란색)
+        button.setOpaque(true);  // 버튼 배경 색상이 보이도록 설정
+        button.setBorderPainted(false);  // 버튼 테두리 없애기
+        button.setBounds(450, 400, 100, 50);  // 버튼 크기 설정 (100x50) 및 위치 조정
 
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+        // 버튼을 JPanel에 추가
+        add(button);
 
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+        // 버튼 클릭 이벤트 처리
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+				//screen.stage=1;
+                main.switchToCard("MusicList");
+            }
+        });
+    }
 
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        // 창 크기에 맞게 이미지 크기 조정
+        Image scaledImage = image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
+        // 이미지를 화면에 그리기
+        g.drawImage(scaledImage, 0, 0, this);
+    }
 }
