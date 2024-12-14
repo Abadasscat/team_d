@@ -14,17 +14,40 @@ public class MusicList extends JPanel {
         String[] songList = {
                 "src/resources/Firefly.wav",
                 "src/resources/Lemon.wav",
+                "src/resources/Welcome to the Show.wav",
+                "src/resources/BETELGEUSE.wav",
+                "src/resources/MNUSS.wav",
+                "src/resources/pocketmon.wav",
+                "src/resources/Card Captor Cherry.wav",
+                "src/resources/Again meet world.wav",
+                "src/resources/sorrow.wav",
+                "src/resources/Flowering.wav",
+                "src/resources/Last Christmas.wav",
+                "src/resources/The Drum.wav"
         };
 
         // 음악 제목 목록 (UI에 표시)
         String[] songTitles = {
-                "1. Firefly", "2. Lemon",
+                "1. Firefly", "2. Lemon", "3. Welcome to the Show",
+                "4. BETELGEUSE", "5. MNUSS", "6. pocketmon",
+                "7. Card Captor Cherry", "8. Again Meet World", "9. Sorrow",
+                "10. Flowering", "11. Last Christmas", "12. The Drum"
         };
 
         // 각 노래에 해당하는 이미지 파일 경로
         String[] imagePaths = {
                 "src/Images/firefly.jpg",
                 "src/Images/lemon.jpg",
+                "src/Images/welcome.jpg",
+                "src/Images/BETELGEUSE.jpg",
+                "src/Images/MNUSS.jpg",
+                "src/Images/pocketmon.jpg",
+                "src/Images/Card Captor Cherry.jpg",
+                "src/Images/Again meet world.jpg",
+                "src/Images/sorrow.jpg",
+                "src/Images/Flowering.jpg",
+                "src/Images/Last Christmas.jpg",
+                "src/Images/The Drum.jpg"
         };
 
         // 음악 리스트 (JList) 생성
