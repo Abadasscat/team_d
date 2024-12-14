@@ -4,21 +4,17 @@ import java.util.ArrayList;
 
 public class Note {
 	private ArrayList<Tile> tiles; // 타일 저장 리스트
-	private int tileWidth = 100;  // 타일 너비
+	private int tileWidth;  // 타일 너비
     private int tileHeight = 50;  // 타일 높이
     private int[] lanePositions;
+    
+    // 판정 범위 상수
+    private final int EXCELLENT_RANGE = 10;
+    private final int GREAT_RANGE = 30;
+    private final int GOOD_RANGE = 50;
 	
 	public Note(int screenWidth) {
 		tiles = new ArrayList<>();	
-		
-		lanePositions = new int[] {
-	            screenWidth / 6 * 0,  // d
-	            screenWidth / 6 * 1,  // f
-	            screenWidth / 6 * 2,  // j
-	            screenWidth / 6 * 3,  // k
-	            screenWidth / 6 * 4,  // o
-	            screenWidth / 6 * 5   // p
-	    };
 	}
 	
 	public void createTileAtPosition(int lane) {
@@ -38,37 +34,40 @@ public class Note {
 	            screenWidth / 6 * 5   // p
 	        };
 	}
-	
-	 // 타일 생성 메서드
-	public void createTile(String key) {
-    	int lane = -1;
-
-        if (lane != -1) {
-            int x = lanePositions[lane];
-            tiles.add(new Tile(x, 0, tileWidth, tileHeight, lane));
-        }
-    }
-    
-    // 타일 이동 및 그리기 (TileManager에서 처리)
-    public ArrayList<Tile> getTiles() {
-        return tiles;
-    }
     
     // 타일 판정 로직
-    public boolean checkHit(int lane, int screenWidth) {
-        int hitZoneStart = 400;  // 판정 시작
-        int hitZoneEnd = 450;    // 판정 끝
+	public String checkHit(int lane, int hitYStart, int hitYEnd) {
+	    for (int i = 0; i < tiles.size(); i++) {
+	        Tile tile = tiles.get(i);
+	        if (tile.getLane() == lane) {
+	            int y = tile.getY();
+	            if (y >= hitYStart && y <= hitYEnd) {
+	                int distance = Math.abs(y - (hitYStart + hitYEnd) / 2);
+	                tiles.remove(i);  // 타일 제거
+	                if (distance <= EXCELLENT_RANGE) return "Excellent";
+	                else if (distance <= GREAT_RANGE) return "Great";
+	                else if (distance <= GOOD_RANGE) return "Good";
+	            }
+	        }
+	    }
+	    return "Miss";
+	}
 
-        for (int i = 0; i < tiles.size(); i++) {
-            Tile tile = tiles.get(i);
-            if (tile.getLane() == lane && tile.getY() >= hitZoneStart && tile.getY() <= hitZoneEnd) {
-                tiles.remove(i);  // 타일 제거
-                return true;      // 성공
-            }
-        }
-        return false;  // 실패
-    }
-
+	
+	// Note 클래스 내 Miss 판정 메서드
+	public String checkMiss(int missLineY) {
+	    for (int i = 0; i < tiles.size(); i++) {
+	        Tile tile = tiles.get(i);
+	        if (tile.getY() > missLineY) {  // 타일이 판정선을 지나면
+	            tiles.remove(i);  // 타일 제거
+	            System.out.println("Miss! Lane: " + tile.getLane());
+	            i--;  // 타일 삭제 시 인덱스 조정
+	            return "Miss";  // Miss 결과 반환
+	        }
+	    }
+	    return "";  // Miss 타일이 없으면 빈 문자열 반환
+	}
+	
 
 	public void draw(Graphics g, Screen screen) { 
 		g.setColor(Color.black); 

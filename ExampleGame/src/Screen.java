@@ -1,5 +1,7 @@
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ComponentEvent;
@@ -26,6 +28,13 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{
 	
 	private int countNumber=0;
 	public int stage = 4;
+
+	// 결과 표시 관련 변수 추가
+	private String lastResult = "";
+	private long resultDisplayTime = 0;
+	private boolean[] keyPressedStates = new boolean[6];  // D, F, J, K, O, P 키 상태
+	private final long RESULTSHOW = 1000;  // 1초 유지
+	
 	
 	public Screen(String songPath) {
 		this.title = new Title(main);
@@ -35,9 +44,12 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{
 	    pattern.setPattern(tilePattern);
 		
 	    musicPlayer = new SimpleMusicPlayer(songPath);
+	    
+	    
 		addComponentListener(this);
-		
+		addKeyListener(this);
 		setFocusable(true);
+		
 		Timer timer = new Timer();
 		timer.schedule(new TimerTask() {
 			
@@ -75,17 +87,40 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{
 		bg.clearRect(0, 0, dim.width, dim.height);
 		
 	    if (stage == 0) {
-	    	//title.draw(bg, this);
+	    	
 	    } else if (stage == 2) {
-	    	//main.draw(bg, this);
-	    	//main.setBounds(0, 0, dim.width, dim.height);
-            //main.paint(bg);
+	    	
 	    } else if (stage == 3) {
 	    	
 	    } else if (stage == 4) {
 	    	note.draw(bg, this);
 	    	home.draw(bg, this);
 	    	duck.draw(bg, this);
+	    	
+	    	// 키 입력 시각 효과
+	        int keyWidth = dim.width / 6;
+	        for (int i = 0; i < 6; i++) {
+	            if (keyPressedStates[i]) {
+	                bg.setColor(new Color(255, 223, 186, 180));  // 반투명 노란색
+	                bg.fillRect(i * keyWidth, getHeight() / 6 * 5, keyWidth, getHeight() / 6);
+	            }
+	        }
+	        
+	       // Miss 판정 수행
+	        String missResult = note.checkMiss(getHeight() / 6 * 5);
+	        if (!missResult.isEmpty()) {
+	            lastResult = missResult;
+	            resultDisplayTime = System.currentTimeMillis();
+	        }
+	        
+	       // 결과 메시지 출력
+	        if (System.currentTimeMillis() - resultDisplayTime < RESULTSHOW) {
+	        	bg.setFont(new Font("Arial", Font.BOLD, 48));
+	        	bg.setColor(Color.YELLOW);
+	            bg.drawString(lastResult, dim.width / 24*7, dim.height / 4);
+	        }
+	        
+	        
 	    } else if (stage == 5) {
 	   
 	    } 
@@ -111,12 +146,48 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
+		if (stage == 4) {
+	        String key = KeyEvent.getKeyText(e.getKeyCode()).toLowerCase();
+	        int lane = switch (key) {
+	            case "d" -> 0;
+	            case "f" -> 1;
+	            case "j" -> 2;
+	            case "k" -> 3;
+	            case "o" -> 4;
+	            case "p" -> 5;
+	            default -> -1;
+	        };
+
+	        if (lane != -1) {
+	            keyPressedStates[lane] = true;
+	            int hitYStart = getHeight() / 6 * 4;  // 판정선 시작
+	            int hitYEnd = getHeight() / 6 * 5;    // 판정선 끝
+	            lastResult = note.checkHit(lane, hitYStart, hitYEnd);
+	            resultDisplayTime = System.currentTimeMillis();
+	            
+	            System.out.println("Lane: " + lane + ", Result: " + lastResult);
+	            System.out.println("Key pressed: " + key);
+	        }
+	    }
 	}
 		
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
+		 String key = KeyEvent.getKeyText(e.getKeyCode()).toLowerCase();
+		    int lane = switch (key) {
+		        case "d" -> 0;
+		        case "f" -> 1;
+		        case "j" -> 2;
+		        case "k" -> 3;
+		        case "o" -> 4;
+		        case "p" -> 5;
+		        default -> -1;
+		    };
+
+		    if (lane != -1) keyPressedStates[lane] = false;
+		
 		
 	}
 
@@ -145,6 +216,14 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{
 	public void componentHidden(ComponentEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	//없을시 키 이벤트 작동에 오류 있음
+	public void addNotify() {
+		// TODO Auto-generated method stub
+		super.addNotify();
+		requestFocusInWindow(); // 화면이 추가될 때 포커스를 요청
 	}
 
 }
