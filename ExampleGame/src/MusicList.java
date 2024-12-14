@@ -4,6 +4,8 @@ import java.io.File;
 
 public class MusicList extends JPanel {
     private JLabel imageLabel;
+    private JButton startButton;
+    private String selectedSongPath = "";
 
     public MusicList(Main main) {
         setLayout(new BorderLayout());
@@ -46,10 +48,21 @@ public class MusicList extends JPanel {
             if (!e.getValueIsAdjusting()) {
                 int selectedIndex = songSelector.getSelectedIndex();
                 if (selectedIndex >= 0) {
-                    String selectedSongPath = songList[selectedIndex];
+                    selectedSongPath = songList[selectedIndex];
                     updateImage(imagePaths[selectedIndex]);
-                    main.openGameScreen(selectedSongPath); // 선택된 노래로 게임 화면 전환
                 }
+            }
+        });
+
+        // Start 버튼 추가
+        startButton = new JButton("Start");
+        startButton.setFont(new Font("Arial", Font.BOLD, 30));
+        startButton.setPreferredSize(new Dimension(150, 50));
+        startButton.addActionListener(e -> {
+            if (!selectedSongPath.isEmpty()) {
+                main.openGameScreen(selectedSongPath); // 선택된 노래로 게임 화면 전환
+            } else {
+                JOptionPane.showMessageDialog(this, "Please select a song first.");
             }
         });
 
@@ -61,8 +74,12 @@ public class MusicList extends JPanel {
         JPanel imagePanel = new JPanel(new BorderLayout());
         imagePanel.add(imageLabel, BorderLayout.CENTER);
 
+        JPanel buttonPanel = new JPanel(new FlowLayout());
+        buttonPanel.add(startButton);
+
         add(listPanel, BorderLayout.EAST);
         add(imagePanel, BorderLayout.CENTER);
+        add(buttonPanel, BorderLayout.SOUTH); // Start 버튼을 아래에 배치
     }
 
     private void updateImage(String imagePath) {
