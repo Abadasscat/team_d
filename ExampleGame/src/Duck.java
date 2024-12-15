@@ -12,6 +12,7 @@ import java.awt.image.ImageProducer;
 import java.awt.image.RGBImageFilter;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 
@@ -32,7 +33,9 @@ public class Duck {
 	private int h=350;
 	
 	private int state = 7;
-	
+	private int time_step = 150;
+	private int duck_index = 0;
+	private Random random = new Random();
 	
 	public Duck() {
 		loadImage();
@@ -126,9 +129,11 @@ public class Duck {
 		this.h=h;
 	}
 	
-	
-	private int time_step = 300;
-	private int duck_index = 0;
+	// 상태를 랜덤으로 전환하는 메서드
+    public void randomizeState() {
+        state = random.nextInt(8);  // 0 ~ 7 범위에서 랜덤 상태 설정
+        duck_index = 0;             // 새 상태로 변경 시 애니메이션 초기화
+    }
 	
 	public void draw(Graphics g, Screen screen) {
 		// TODO Auto-generated method stub

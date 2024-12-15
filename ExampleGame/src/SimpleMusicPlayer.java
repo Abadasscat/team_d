@@ -7,6 +7,7 @@ public class SimpleMusicPlayer {
     private Clip audioClip;
     private FloatControl gainControl; // 볼륨 조정용 FloatControl 객체
     private float currentVolume = -10.0f; // 초기 볼륨 값 (dB)
+    private Runnable End;// 노래 끝날시 호출될 것
 
     public SimpleMusicPlayer(String filePath) {
         loadAudio(filePath);
@@ -34,6 +35,15 @@ public class SimpleMusicPlayer {
             // FloatControl 얻기
             gainControl = (FloatControl) audioClip.getControl(FloatControl.Type.MASTER_GAIN);
 
+            // 재생 완료 이벤트 리스너 추가 
+            audioClip.addLineListener(event -> {
+            	if (event.getType() == LineEvent.Type.STOP) {
+            		audioClip.setFramePosition(0); 
+            		if (End != null) {
+            			End.run(); } 
+            		}
+            });
+            
         } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             e.printStackTrace();
         }
@@ -70,5 +80,10 @@ public class SimpleMusicPlayer {
     // 현재 볼륨 값을 반환하는 메서드
     public float getCurrentVolume() {
         return currentVolume;
+    }
+    
+    // 노래 종료 시 호출될 메서드 
+    public void End(Runnable End) {
+    	this.End = End; 
     }
 }

@@ -7,6 +7,7 @@ public class Note {
 	private int tileWidth;  // 타일 너비
     private int tileHeight = 50;  // 타일 높이
     private int[] lanePositions;
+    private Score score = new Score();
     
     // 판정 범위 상수
     private final int EXCELLENT_RANGE = 10;
@@ -44,13 +45,22 @@ public class Note {
 	            if (y >= hitYStart && y <= hitYEnd) {
 	                int distance = Math.abs(y - (hitYStart + hitYEnd) / 2);
 	                tiles.remove(i);  // 타일 제거
-	                if (distance <= EXCELLENT_RANGE) return "Excellent";
-	                else if (distance <= GREAT_RANGE) return "Great";
-	                else if (distance <= GOOD_RANGE) return "Good";
+	                if (distance <= EXCELLENT_RANGE) {
+	                	score.addScore(100);
+	                	return "Excellent";
+	                }
+	                else if (distance <= GREAT_RANGE) {
+	                	score.addScore(80);
+	                	return "Great";
+	                }
+	                else if (distance <= GOOD_RANGE) {
+	                	score.addScore(60);
+	                	return "Good";
+	                }
 	            }
 	        }
 	    }
-	    return "Miss";
+	    return "";
 	}
 
 	
@@ -62,6 +72,7 @@ public class Note {
 	            tiles.remove(i);  // 타일 제거
 	            System.out.println("Miss! Lane: " + tile.getLane());
 	            i--;  // 타일 삭제 시 인덱스 조정
+	            score.subtractScore(150);
 	            return "Miss";  // Miss 결과 반환
 	        }
 	    }
@@ -100,4 +111,8 @@ public class Note {
             tile.draw(g, screen);      // 타일 그리기
         }
 	}	
+	
+	public Score getScore() {
+		return score;
+	}
 }

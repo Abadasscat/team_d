@@ -27,7 +27,7 @@ public class Main extends JFrame {
     }
 
     public void openGameScreen(String songPath) {
-        Screen screen = new Screen(songPath);
+        Screen screen = new Screen(this, songPath);
         cardPanel.add(screen, "GameScreen");
         cardLayout.show(cardPanel, "GameScreen");
     }

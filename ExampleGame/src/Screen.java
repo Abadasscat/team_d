@@ -12,19 +12,24 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+
 public class Screen extends Canvas implements ComponentListener, KeyListener{
 	private Graphics bg;
 	private Image offScreen;
 	private Dimension dim;
 	
-	private Title title;
+	private Main main;
+	private Title title=new Title(main);
 	private Note note=new Note(getWidth());
 	private DuckHome home=new DuckHome();
 	private Duck duck=new Duck();
 	private TilePattern pattern = new TilePattern(note);
 	private TilePatternManager patternManager = new TilePatternManager(); 
+	private MusicList musicList = new MusicList(main);
 	private SimpleMusicPlayer musicPlayer; // 선택된 노래 로드; // 음악 플레이어	
-	private Main main;
+	private Score score = new Score();
 	
 	private int countNumber=0;
 	public int stage = 4;
@@ -36,8 +41,8 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{
 	private final long RESULTSHOW = 1000;  // 1초 유지
 	
 	
-	public Screen(String songPath) {
-		this.title = new Title(main);
+	public Screen(Main main, String songPath) {
+		this.main = main;//초기화
 		
 		// 노래에 맞는 패턴 가져오기
 	    List<TileBeat> tilePattern = patternManager.getPattern(songPath);
@@ -45,6 +50,11 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{
 		
 	    musicPlayer = new SimpleMusicPlayer(songPath);
 	    
+	   // 노래 종료 시 뮤직 리스트로 이동하는 콜백 등록
+        musicPlayer.End(() -> {
+        	 showScorePopup();  // 점수 창 표시
+            //stage = 1;  // MusicList 화면으로 전환
+        });
 	    
 		addComponentListener(this);
 		addKeyListener(this);
@@ -76,18 +86,42 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{
 	
 	public void counting() {
 		this.countNumber++;
+		
+		// 일정 간격마다 오리 상태 랜덤 변경
+	    if (countNumber % 10000 == 0) {
+	        duck.randomizeState();
+	    }
 	}
 	
 	public int getCount() {
 		return this.countNumber;
 	}
 	
+	// 점수 팝업 창 표시 메서드
+    private void showScorePopup() {
+        SwingUtilities.invokeLater(() -> {//알림창이 안움직이도록 도와줌
+            int finalScore = note.getScore().getScore();  // 최종 점수 가져오기
+            JOptionPane.showMessageDialog(// 참고 https://hallang.tistory.com/136
+                this,
+                "점수: " + finalScore,
+                "Game Over",
+                JOptionPane.INFORMATION_MESSAGE
+            );
+
+            // 화면 전환
+            stage = 1;  // MusicList 화면으로 이동
+        });
+    }
+    
 	@Override
 	public void paint(Graphics g) {
 		bg.clearRect(0, 0, dim.width, dim.height);
 		
 	    if (stage == 0) {
-	    	
+	    	main.switchToCard("Title");
+	    } else if (stage == 1) { 
+	    	// musicList 화면으로 전환
+	    	main.switchToCard("MusicList");
 	    } else if (stage == 2) {
 	    	
 	    } else if (stage == 3) {
@@ -121,6 +155,11 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{
 	        }
 	        
 	        
+	        // 점수가 -1500 이하로 떨어지면 stage 변경 
+        	if (note.getScore().getScore() <= -1500) {
+        		stage = 1; // stage를 1로 변경 
+        		musicPlayer.stop(); // 음악 재생 중지 
+        	}
 	    } else if (stage == 5) {
 	   
 	    } 
