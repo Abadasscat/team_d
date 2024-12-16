@@ -16,7 +16,7 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 
-public class Duck {
+public class Duck {//거위
 	private BufferedImage duck;
 	private BufferedImage[] duckes1 = new BufferedImage[12];
 	private BufferedImage[] duckes2 = new BufferedImage[16];

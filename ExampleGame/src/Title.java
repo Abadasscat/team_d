@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 
-public class Title extends JPanel {
+public class Title extends JPanel {//시작 화면
     private BufferedImage image;
     private JButton button;
     private Screen screen;

@@ -2,7 +2,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
-class Tile {
+class Tile {//타일
     private int x, y, width, height, lane;
     private Dimension dim;
 

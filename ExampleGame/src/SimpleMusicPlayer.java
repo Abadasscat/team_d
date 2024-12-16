@@ -2,7 +2,7 @@ import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
 
-public class SimpleMusicPlayer {
+public class SimpleMusicPlayer {//음악 재생
 
     private Clip audioClip;
     private FloatControl gainControl; // 볼륨 조정용 FloatControl 객체

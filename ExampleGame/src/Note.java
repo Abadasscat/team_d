@@ -2,7 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-public class Note {
+public class Note {//피아노 노트
 	private ArrayList<Tile> tiles; // 타일 저장 리스트
 	private int tileWidth;  // 타일 너비
     private int tileHeight = 50;  // 타일 높이

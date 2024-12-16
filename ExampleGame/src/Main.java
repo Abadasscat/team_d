@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Main extends JFrame {
+public class Main extends JFrame {//화면 띄우기
     private CardLayout cardLayout = new CardLayout();
     private JPanel cardPanel = new JPanel(cardLayout);
     

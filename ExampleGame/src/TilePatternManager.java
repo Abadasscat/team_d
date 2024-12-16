@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 
-public class TilePatternManager {
+public class TilePatternManager {//타일 패턴 입력하는 곳
     private HashMap<String, List<TileBeat>> patterns;
 
     public TilePatternManager() {

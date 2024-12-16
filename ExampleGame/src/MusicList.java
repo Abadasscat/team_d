@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 
-public class MusicList extends JPanel {
+public class MusicList extends JPanel {//음악 리스트
     private JLabel imageLabel;
     private JButton startButton;
     private String selectedSongPath = "";

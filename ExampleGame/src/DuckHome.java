@@ -1,7 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class DuckHome {
+public class DuckHome {//거위 들어갈 흰색 바탕
 	
 	public DuckHome() {
 		

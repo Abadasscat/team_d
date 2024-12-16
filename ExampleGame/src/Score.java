@@ -1,5 +1,5 @@
 
-public class Score {
+public class Score {//점수
 	private int score;
 	
 	public Score() {

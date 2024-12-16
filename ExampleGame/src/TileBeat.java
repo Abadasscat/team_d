@@ -1,5 +1,5 @@
 
-public class TileBeat {
+public class TileBeat {//타일 시간, 줄 관리
 	
 	public TileBeat(int time, int lane) {
 		super();

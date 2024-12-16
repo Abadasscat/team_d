@@ -15,7 +15,7 @@ import java.util.TimerTask;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-public class Screen extends Canvas implements ComponentListener, KeyListener{
+public class Screen extends Canvas implements ComponentListener, KeyListener{//화면 그리기
 	private Graphics bg;
 	private Image offScreen;
 	private Dimension dim;

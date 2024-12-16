@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class TilePattern {
+public class TilePattern {//타일 패턴 관리
     private List<TileBeat> pattern; // 타일 비트 리스트
     private Note note; // Note 객체 참조
     private Timer timer;
