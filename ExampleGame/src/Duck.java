@@ -22,7 +22,7 @@ public class Duck {
 	private BufferedImage[] duckes2 = new BufferedImage[16];
 	private BufferedImage[] duckes3 = new BufferedImage[4];
 	private BufferedImage[] duckes4 = new BufferedImage[2];
-	private BufferedImage[] duckes5 = new BufferedImage[5];
+	private BufferedImage[] duckes5 = new BufferedImage[6];
 	private BufferedImage[] duckes6 = new BufferedImage[9];
 	private BufferedImage[] duckes7 = new BufferedImage[13];
 	private BufferedImage[] duckes8 = new BufferedImage[11];
@@ -32,7 +32,7 @@ public class Duck {
 	private int w=200;
 	private int h=350;
 	
-	private int state = 7;
+	private int state = 5;
 	private int time_step = 150;
 	private int duck_index = 0;
 	private Random random = new Random();
@@ -184,12 +184,12 @@ public class Duck {
 		else if(state == 5){
 			g.drawImage(this.duckes5[duck_index], x, y, w, h, screen);
 			if(screen.getCount()% time_step == 0) {
-				if (duck_index < 4) {
+				if (duck_index < 3) {
 					duck_index++;
 				} else {
 					duck_index++;
 					if (duck_index > 5) {
-						duck_index =4;
+						duck_index = 3;
 					}
 				}
 			}
