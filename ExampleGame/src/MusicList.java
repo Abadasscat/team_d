@@ -35,10 +35,10 @@ public class MusicList extends JPanel {//음악 리스트
 
         // 음악 제목 목록 (UI에 표시)
         String[] songTitles = {
-                "1. Firefly", "2. Lemon", "3. Welcome to the Show",
-                "4. BETELGEUSE", "5. MNUSS", "6. pocketmon",
-                "7. Card Captor Cherry", "8. Again Meet World", "9. Sorrow",
-                "10. Flowering", "11. Last Christmas", "12. The Drum"
+                "1. Firefly    (Normal)", "2. Lemon    (Hard)", "3. Welcome to the Show    (Hard)",
+                "4. BETELGEUSE    (Normal)", "5. MNUSS    (Easy)", "6. pocketmon    (Hard)",
+                "7. Card Captor Cherry    (Hard)", "8. Again Meet World    (Secret)", "9. Sorrow    (Secret)",
+                "10. Flowering    (Secret)", "11. Last Christmas    (easy)", "12. The Drum    (Secret)"
         };
 
         // 각 노래에 해당하는 이미지 파일 경로
