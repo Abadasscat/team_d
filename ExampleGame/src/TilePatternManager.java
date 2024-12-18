@@ -238,7 +238,7 @@ public class TilePatternManager {//타일 패턴 입력하는 곳
         song2Pattern.add(new TileBeat(39000, 2));
         song2Pattern.add(new TileBeat(39500, 1));
         song2Pattern.add(new TileBeat(40000, 3));
-song2Pattern.add(new TileBeat(40500, 2));
+        song2Pattern.add(new TileBeat(40500, 2));
         song2Pattern.add(new TileBeat(41000, 3));
         song2Pattern.add(new TileBeat(41500, 1));
         song2Pattern.add(new TileBeat(42000, 3));
