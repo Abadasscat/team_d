@@ -16,6 +16,7 @@ public class TilePatternManager {//타일 패턴 입력하는 곳
         List<TileBeat> song1Pattern = new ArrayList<>();
         song1Pattern.add(new TileBeat(500, 3));
         song1Pattern.add(new TileBeat(3000, 1));
+        /*
         song1Pattern.add(new TileBeat(5800, 0));
         song1Pattern.add(new TileBeat(80000, 3));
         song1Pattern.add(new TileBeat(10500, 3));
@@ -151,6 +152,7 @@ public class TilePatternManager {//타일 패턴 입력하는 곳
         song1Pattern.add(new TileBeat(179500, 1));
         song1Pattern.add(new TileBeat(179500, 2));
         song1Pattern.add(new TileBeat(179500, 3));
+        */
         // 추가 타일 비트
         patterns.put("src/resources/Firefly.wav", song1Pattern);
         

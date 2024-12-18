@@ -19,7 +19,8 @@ public class Main extends JFrame {//화면 띄우기
         cardPanel.add(musiclist, "MusicList");
 
         add(cardPanel);
-        cardLayout.show(cardPanel, "TitleScreen"); // 초기 화면을 타이틀 화면으로 설정
+        
+        //cardLayout.show(cardPanel, "TitleScreen"); // 초기 화면을 타이틀 화면으로 설정
     }
 
     public void switchToCard(String cardName) {
