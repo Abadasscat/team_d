@@ -16,7 +16,6 @@ public class TilePatternManager {//타일 패턴 입력하는 곳
         List<TileBeat> song1Pattern = new ArrayList<>();
         song1Pattern.add(new TileBeat(500, 3));
         song1Pattern.add(new TileBeat(3000, 1));
-        /*
         song1Pattern.add(new TileBeat(5800, 0));
         song1Pattern.add(new TileBeat(80000, 3));
         song1Pattern.add(new TileBeat(10500, 3));
@@ -152,7 +151,6 @@ public class TilePatternManager {//타일 패턴 입력하는 곳
         song1Pattern.add(new TileBeat(179500, 1));
         song1Pattern.add(new TileBeat(179500, 2));
         song1Pattern.add(new TileBeat(179500, 3));
-        */
         // 추가 타일 비트
         patterns.put("src/resources/Firefly.wav", song1Pattern);
         
@@ -1115,17 +1113,580 @@ public class TilePatternManager {//타일 패턴 입력하는 곳
         
         // 5. 교가
         List<TileBeat> song5Pattern = new ArrayList<>();
+        song4Pattern.add(new TileBeat(10800, 0)); //10초 우뚝 솟은 유달산 
+        song4Pattern.add(new TileBeat(14800, 2)); //14초 바다의 정기
+        song4Pattern.add(new TileBeat(19800, 2)); //19초 다도해
+        song4Pattern.add(new TileBeat(22800, 2)); //22초 푸른 물결
+        song4Pattern.add(new TileBeat(24800, 0)); //24초 우리 맘이라
+        song4Pattern.add(new TileBeat(29800, 2)); //29초 기쁨으로 설레는 
+        song4Pattern.add(new TileBeat(33800, 2)); //33초 이 누리의 탑
+        song4Pattern.add(new TileBeat(39800, 3)); //39초 새 역사 창조하는 
+        song4Pattern.add(new TileBeat(43800, 1)); //43초 보람에 산다
+        song4Pattern.add(new TileBeat(49800, 2)); //49초 창조와 
+        song4Pattern.add(new TileBeat(51800, 3)); //51초 덕의 봉사
+        song4Pattern.add(new TileBeat(53800, 2)); //53초 진리의 전당 
+        song4Pattern.add(new TileBeat(58800, 3)); //58초 창조와 
+        song4Pattern.add(new TileBeat(60800, 1)); //60초 덕의 봉사 
+        song4Pattern.add(new TileBeat(63800, 2)); //63초 진리의 전당
+        song4Pattern.add(new TileBeat(68800, 2)); //68초 승달산에 
+        song4Pattern.add(new TileBeat(70800, 1)); //70초 나래치는 
+        song4Pattern.add(new TileBeat(72800, 2)); //72초 목포대학 
+        song4Pattern.add(new TileBeat(75800, 2)); //75초 목포대학
+        song4Pattern.add(new TileBeat(77800, 2)); //77초 길이 길이 2개패널 내려오도록  
+        song4Pattern.add(new TileBeat(77800, 3)); //77초 길이 길이 2개패널 내려오도록  
+        song4Pattern.add(new TileBeat(77800, 2)); //77초 길이 길이 2개패널 내려오도록
+        song4Pattern.add(new TileBeat(77800, 3)); //77초 길이 길이 2개패널 내려오도록  
+        song4Pattern.add(new TileBeat(80800, 2)); //80초 길이 길이 2개패널 내려오도록  
+        song4Pattern.add(new TileBeat(80800, 3)); //80초 길이 길이 2개패널 내려오도록 
+        song4Pattern.add(new TileBeat(80800, 2)); //80초 길이 길이 2개패널 내려오도록 
+        song4Pattern.add(new TileBeat(80800, 3)); //80초 길이 길이 2개패널 내려오도록  
+        song4Pattern.add(new TileBeat(83800, 2)); //83초 길이 
+        song4Pattern.add(new TileBeat(84800, 1)); //84초 빛나리 
         // 추가 타일 비트
         patterns.put("src/resources/MNUSS.wav", song5Pattern);
         
         // 6. 포켓몬
         List<TileBeat> song6Pattern = new ArrayList<>();
+     // 브금 1 ~ 4
+        song6Pattern.add(new TileBeat(1500, 0));
+        song6Pattern.add(new TileBeat(1900, 3));
+        song6Pattern.add(new TileBeat(2300, 1));
+        song6Pattern.add(new TileBeat(2700, 2));
+        song6Pattern.add(new TileBeat(3100, 3));
+        song6Pattern.add(new TileBeat(3500, 2));
+        song6Pattern.add(new TileBeat(3900, 3));
+        song6Pattern.add(new TileBeat(4300, 2));
+
+        // 자 이제 시작이야 4 ~ 6
+        song6Pattern.add(new TileBeat(4500, 0));
+
+        song6Pattern.add(new TileBeat(4800, 0));
+        song6Pattern.add(new TileBeat(5100, 1));
+
+        song6Pattern.add(new TileBeat(5400, 0));
+        song6Pattern.add(new TileBeat(5700, 2));
+        song6Pattern.add(new TileBeat(6000, 1));
+        song6Pattern.add(new TileBeat(6300, 3));
+
+        // 내 꿈을 6 ~ 7
+        song6Pattern.add(new TileBeat(6500, 3));
+        song6Pattern.add(new TileBeat(6950, 2));
+        song6Pattern.add(new TileBeat(7400, 1));
+
+        // 내 꿈을 위한 여행 7 ~ 9
+        song6Pattern.add(new TileBeat(7500, 0));
+        song6Pattern.add(new TileBeat(7875, 2));
+        song6Pattern.add(new TileBeat(8250, 3));
+        song6Pattern.add(new TileBeat(8625, 2));
+        song6Pattern.add(new TileBeat(9000, 1));
+        song6Pattern.add(new TileBeat(9375, 0));
+
+        // 피카츄 9 ~ 10
+        song6Pattern.add(new TileBeat(9500, 0));
+        song6Pattern.add(new TileBeat(9900, 1));
+        song6Pattern.add(new TileBeat(10300, 2));
+
+        // 걱정따윈 없어 10 ~ 12
+        song6Pattern.add(new TileBeat(10500, 3));
+        song6Pattern.add(new TileBeat(10900, 2));
+        song6Pattern.add(new TileBeat(11300, 3));
+        song6Pattern.add(new TileBeat(11700, 0));
+
+        song6Pattern.add(new TileBeat(12100, 1));
+        song6Pattern.add(new TileBeat(12500, 2));
+
+        // 없어 12 ~ 13
+        song6Pattern.add(new TileBeat(12800, 2));
+        song6Pattern.add(new TileBeat(13100, 3));
+
+        // 내 친구랑 함께니까 13 ~ 16
+        song6Pattern.add(new TileBeat(13500, 1));
+
+        song6Pattern.add(new TileBeat(13925, 0));
+        song6Pattern.add(new TileBeat(14350, 2));
+        song6Pattern.add(new TileBeat(14775, 3));
+
+        song6Pattern.add(new TileBeat(15200, 2));
+        song6Pattern.add(new TileBeat(15625, 1));
+        song6Pattern.add(new TileBeat(16050, 0));
+        song6Pattern.add(new TileBeat(16475, 2));
+
+        // 피카피카 16 ~ 17
+        song6Pattern.add(new TileBeat(16500, 3));
+        song6Pattern.add(new TileBeat(16800, 2));
+        song6Pattern.add(new TileBeat(17100, 1));
+        song6Pattern.add(new TileBeat(17400, 0));
+
+        // 처음 시작은 어색할지도 몰라 17~21
+        song6Pattern.add(new TileBeat(17500, 1));
+        song6Pattern.add(new TileBeat(17850, 1));
+
+        song6Pattern.add(new TileBeat(18200, 2));
+        song6Pattern.add(new TileBeat(18550, 3));
+        song6Pattern.add(new TileBeat(18900, 0));
+
+        song6Pattern.add(new TileBeat(19250, 2));
+        song6Pattern.add(new TileBeat(19600, 3));
+        song6Pattern.add(new TileBeat(19950, 1));
+        song6Pattern.add(new TileBeat(20300, 2));
+        song6Pattern.add(new TileBeat(20650, 20));
+
+        song6Pattern.add(new TileBeat(21000, 2));
+        song6Pattern.add(new TileBeat(21350, 3));
+
+        // (몰라) 21~22
+        song6Pattern.add(new TileBeat(21500, 3));
+        song6Pattern.add(new TileBeat(22000, 1));
+
+        // 내 친구 피카츄 22~24
+        song6Pattern.add(new TileBeat(22500, 3));
+
+        song6Pattern.add(new TileBeat(22850, 0));
+        song6Pattern.add(new TileBeat(23200, 1));
+
+        song6Pattern.add(new TileBeat(23550, 2));
+        song6Pattern.add(new TileBeat(23900, 1));
+        song6Pattern.add(new TileBeat(24250, 0));
+
+        // 날 지켜줄거라고 믿고있어 24~28
+        song6Pattern.add(new TileBeat(24500, 0));
+
+        song6Pattern.add(new TileBeat(24850, 3));
+        song6Pattern.add(new TileBeat(25200, 1));
+        song6Pattern.add(new TileBeat(25550, 0));
+        song6Pattern.add(new TileBeat(25900, 2));
+        song6Pattern.add(new TileBeat(26250, 0));
+        song6Pattern.add(new TileBeat(26600, 1));
+
+        song6Pattern.add(new TileBeat(26950, 3));
+        song6Pattern.add(new TileBeat(27300, 2));
+        song6Pattern.add(new TileBeat(27650, 3));
+        song6Pattern.add(new TileBeat(28000, 0));
+        song6Pattern.add(new TileBeat(28350, 2));
+
+     // 누구라도 얕보다간 큰일 나 28~31
+        song6Pattern.add(new TileBeat(28500, 0));
+        song6Pattern.add(new TileBeat(28780, 1));
+        song6Pattern.add(new TileBeat(29060, 2));
+        song6Pattern.add(new TileBeat(29340, 3));
+        song6Pattern.add(new TileBeat(29620, 2));
+        song6Pattern.add(new TileBeat(29900, 1));
+        song6Pattern.add(new TileBeat(30180, 0));
+        song6Pattern.add(new TileBeat(30460, 1));
+        song6Pattern.add(new TileBeat(30740, 2));
+        song6Pattern.add(new TileBeat(31020, 3));
+        song6Pattern.add(new TileBeat(31300, 2));
+
+        // 언제나 31~32
+        song6Pattern.add(new TileBeat(31500, 0));
+        song6Pattern.add(new TileBeat(31800, 1));
+        song6Pattern.add(new TileBeat(32100, 2));
+
+        // 어디서나 32~33
+        song6Pattern.add(new TileBeat(32500, 0));
+        song6Pattern.add(new TileBeat(32800, 1));
+        song6Pattern.add(new TileBeat(33100, 2));
+        song6Pattern.add(new TileBeat(33400, 3));
+
+        // (피카츄가 옆에 있어) 33~34
+        song6Pattern.add(new TileBeat(33500, 0));
+        song6Pattern.add(new TileBeat(33625, 3));
+        song6Pattern.add(new TileBeat(33750, 0));
+        song6Pattern.add(new TileBeat(33875, 3));
+        song6Pattern.add(new TileBeat(34000, 1));
+        song6Pattern.add(new TileBeat(34125, 2));
+        song6Pattern.add(new TileBeat(34250, 1));
+        song6Pattern.add(new TileBeat(34375, 2));
+
+        // 약할때나 34~35
+        song6Pattern.add(new TileBeat(34500, 0));
+        song6Pattern.add(new TileBeat(34750, 1));
+        song6Pattern.add(new TileBeat(35000, 2));
+        song6Pattern.add(new TileBeat(35250, 3));
+
+        // 강할때나 35~36
+        song6Pattern.add(new TileBeat(35500, 0));
+        song6Pattern.add(new TileBeat(35750, 1));
+        song6Pattern.add(new TileBeat(36000, 2));
+        song6Pattern.add(new TileBeat(36250, 3));
+
+        // (피카츄가 옆에 있어) 36~38
+        song6Pattern.add(new TileBeat(36500, 0));
+        song6Pattern.add(new TileBeat(36750, 3));
+        song6Pattern.add(new TileBeat(37000, 0));
+        song6Pattern.add(new TileBeat(37250, 3));
+        song6Pattern.add(new TileBeat(37500, 1));
+        song6Pattern.add(new TileBeat(37750, 2));
+        song6Pattern.add(new TileBeat(38000, 1));
+        song6Pattern.add(new TileBeat(38250, 2));
+
+        // 너와 나 함께라면 우린 최고야 38~41
+        song6Pattern.add(new TileBeat(38500, 2));
+        song6Pattern.add(new TileBeat(38750, 3));
+        song6Pattern.add(new TileBeat(39000, 1));
+        song6Pattern.add(new TileBeat(39250, 3));
+        song6Pattern.add(new TileBeat(39500, 0));
+        song6Pattern.add(new TileBeat(39750, 2));
+        song6Pattern.add(new TileBeat(40000, 0));
+        song6Pattern.add(new TileBeat(40250, 1));
+        song6Pattern.add(new TileBeat(40500, 3));
+        song6Pattern.add(new TileBeat(40750, 0));
+        song6Pattern.add(new TileBeat(41000, 2));
+        song6Pattern.add(new TileBeat(41250, 1));
+
+        // 언제 언제까지나 41~44
+        song6Pattern.add(new TileBeat(41500, 2));
+        song6Pattern.add(new TileBeat(41850, 3));
+        song6Pattern.add(new TileBeat(42200, 2));
+        song6Pattern.add(new TileBeat(42550, 3));
+        song6Pattern.add(new TileBeat(42900, 0));
+        song6Pattern.add(new TileBeat(43250, 1));
+        song6Pattern.add(new TileBeat(43600, 2));
+        song6Pattern.add(new TileBeat(43950, 3));
+
+        // 진실한 마음으로 44~48
+        song6Pattern.add(new TileBeat(44500, 2));
+        song6Pattern.add(new TileBeat(45000, 3));
+        song6Pattern.add(new TileBeat(45500, 0));
+        song6Pattern.add(new TileBeat(46000, 2));
+        song6Pattern.add(new TileBeat(46500, 3));
+        song6Pattern.add(new TileBeat(47000, 1));
+        song6Pattern.add(new TileBeat(47500, 2));
+        song6Pattern.add(new TileBeat(48000, 1));
+
+        // 언제 언제까지나 48~51
+        song6Pattern.add(new TileBeat(48500, 0));
+        song6Pattern.add(new TileBeat(48900, 1));
+        song6Pattern.add(new TileBeat(49300, 0));
+        song6Pattern.add(new TileBeat(49700, 1));
+        song6Pattern.add(new TileBeat(50100, 3));
+        song6Pattern.add(new TileBeat(50500, 2));
+        song6Pattern.add(new TileBeat(50900, 1));
+        song6Pattern.add(new TileBeat(51300, 0));
+
+        // 그날을 위해 51~55
+        song6Pattern.add(new TileBeat(51500, 2));
+        song6Pattern.add(new TileBeat(52000, 3));
+        song6Pattern.add(new TileBeat(52500, 1));
+        song6Pattern.add(new TileBeat(53000, 2));
+        song6Pattern.add(new TileBeat(53500, 2));
+        song6Pattern.add(new TileBeat(54000, 3));
+        song6Pattern.add(new TileBeat(54500, 0));
+        song6Pattern.add(new TileBeat(55000, 1));
+
+        // (피카츄!) 55~56
+        song6Pattern.add(new TileBeat(55500, 0));
+        song6Pattern.add(new TileBeat(55850, 1));
+        song6Pattern.add(new TileBeat(56200, 2));
+
+     // 끝 브금 56~57!(시간 같게)
+        song6Pattern.add(new TileBeat(56800, 0));
+        song6Pattern.add(new TileBeat(56800, 3));
+
+        // 브금 58~60
+        song6Pattern.add(new TileBeat(58500, 3));
+        song6Pattern.add(new TileBeat(58600, 2));
+        song6Pattern.add(new TileBeat(58700, 1));
+        song6Pattern.add(new TileBeat(58800, 0));
+        song6Pattern.add(new TileBeat(58900, 2));
+
+        song6Pattern.add(new TileBeat(59100, 3)); 
+        song6Pattern.add(new TileBeat(59200, 2));
+        song6Pattern.add(new TileBeat(59300, 1));
+        song6Pattern.add(new TileBeat(59400, 0));
+        song6Pattern.add(new TileBeat(59500, 2));
+
+        // 피카츄 라이츄 파이리 꼬부기 버터풀 야도란 피존투 또가스 60~66
+        song6Pattern.add(new TileBeat(60500, 0));
+        song6Pattern.add(new TileBeat(60685, 1));
+        song6Pattern.add(new TileBeat(60870, 0));
+
+        song6Pattern.add(new TileBeat(61270, 1));
+        song6Pattern.add(new TileBeat(61455, 2));
+        song6Pattern.add(new TileBeat(61640, 1));
+
+        song6Pattern.add(new TileBeat(62040, 2));
+        song6Pattern.add(new TileBeat(62225, 3));
+        song6Pattern.add(new TileBeat(62410, 2));
+
+        song6Pattern.add(new TileBeat(62810, 3));
+        song6Pattern.add(new TileBeat(62995, 2));
+        song6Pattern.add(new TileBeat(63180, 3));
+
+        song6Pattern.add(new TileBeat(63580, 2));
+        song6Pattern.add(new TileBeat(63765, 1));
+        song6Pattern.add(new TileBeat(63950, 2));
+
+        song6Pattern.add(new TileBeat(64350, 1));
+        song6Pattern.add(new TileBeat(64535, 0));
+        song6Pattern.add(new TileBeat(64720, 1));
+
+        song6Pattern.add(new TileBeat(65120, 0));
+        song6Pattern.add(new TileBeat(65305, 1));
+        song6Pattern.add(new TileBeat(65490, 0));
+
+        song6Pattern.add(new TileBeat(65890, 1));
+        song6Pattern.add(new TileBeat(66075, 2));
+        song6Pattern.add(new TileBeat(66260, 1));
+
+        // 서로 생긴 모습은 달라도 66~69
+        song6Pattern.add(new TileBeat(66500, 0));
+        song6Pattern.add(new TileBeat(66800, 1));
+
+        song6Pattern.add(new TileBeat(67100, 2));
+        song6Pattern.add(new TileBeat(67400, 3));
+
+        song6Pattern.add(new TileBeat(67700, 0));
+        song6Pattern.add(new TileBeat(68000, 1));
+        song6Pattern.add(new TileBeat(68300, 2));
+
+        song6Pattern.add(new TileBeat(68600, 3));
+        song6Pattern.add(new TileBeat(68900, 2));
+        song6Pattern.add(new TileBeat(69200, 1));
+
+        // 우리는 모두 친구 69~71
+        song6Pattern.add(new TileBeat(69500, 2));
+        song6Pattern.add(new TileBeat(69800, 3));
+        song6Pattern.add(new TileBeat(70100, 2));
+
+        song6Pattern.add(new TileBeat(70400, 0));
+        song6Pattern.add(new TileBeat(70700, 1));
+
+        song6Pattern.add(new TileBeat(71000, 3));
+        song6Pattern.add(new TileBeat(71300, 2));
+
+        // (맞아!) 71~72
+        song6Pattern.add(new TileBeat(71500, 2));
+        song6Pattern.add(new TileBeat(72000, 2));
+
+        // 산에서 들에서 때리고 뒹굴고 사막에서 정글에서 울다가 웃다가 72~78
+        song6Pattern.add(new TileBeat(72500, 3));
+        song6Pattern.add(new TileBeat(72675, 2));
+        song6Pattern.add(new TileBeat(72850, 3));
+
+        song6Pattern.add(new TileBeat(73250, 2)); 
+        song6Pattern.add(new TileBeat(73425, 1));
+        song6Pattern.add(new TileBeat(73600, 2));
+
+        song6Pattern.add(new TileBeat(74000, 1)); 
+        song6Pattern.add(new TileBeat(74175, 0));
+        song6Pattern.add(new TileBeat(74350, 1));
+
+        song6Pattern.add(new TileBeat(74750, 0)); 
+        song6Pattern.add(new TileBeat(74925, 1));
+        song6Pattern.add(new TileBeat(75100, 0));
+
+        song6Pattern.add(new TileBeat(75500, 1)); 
+        song6Pattern.add(new TileBeat(75675, 2));
+        song6Pattern.add(new TileBeat(75850, 1));
+        song6Pattern.add(new TileBeat(76025, 2));
+
+        song6Pattern.add(new TileBeat(76425, 3)); 
+        song6Pattern.add(new TileBeat(76600, 2));
+        song6Pattern.add(new TileBeat(76775, 3));
+        song6Pattern.add(new TileBeat(76950, 2));
+
+        song6Pattern.add(new TileBeat(77350, 1)); 
+        song6Pattern.add(new TileBeat(77525, 0));
+        song6Pattern.add(new TileBeat(77700, 1));
+
+        song6Pattern.add(new TileBeat(78100, 3)); 
+        song6Pattern.add(new TileBeat(78275, 2));
+        song6Pattern.add(new TileBeat(78450, 3));
+
+     // 서로 만나기까지 힘들었어도 78~81
+        song6Pattern.add(new TileBeat(78500, 0));
+        song6Pattern.add(new TileBeat(78750, 1));
+
+        song6Pattern.add(new TileBeat(79000, 2));
+        song6Pattern.add(new TileBeat(79250, 3));
+        song6Pattern.add(new TileBeat(79500, 2));
+        song6Pattern.add(new TileBeat(79750, 1));
+        song6Pattern.add(new TileBeat(80000, 0));
+
+        song6Pattern.add(new TileBeat(80300, 1));
+        song6Pattern.add(new TileBeat(80550, 2));
+        song6Pattern.add(new TileBeat(80800, 3));
+        song6Pattern.add(new TileBeat(81050, 2));
+        song6Pattern.add(new TileBeat(81300, 1));
+
+        // 우리는 모두 친구 81~83
+        song6Pattern.add(new TileBeat(81500, 2));
+        song6Pattern.add(new TileBeat(81800, 3));
+        song6Pattern.add(new TileBeat(82100, 2));
+
+        song6Pattern.add(new TileBeat(82400, 0));
+        song6Pattern.add(new TileBeat(82700, 1));
+
+        song6Pattern.add(new TileBeat(83000, 3));
+        song6Pattern.add(new TileBeat(83300, 2));
+
+        // (피카피카) 83~84
+        song6Pattern.add(new TileBeat(83500, 1));
+        song6Pattern.add(new TileBeat(83750, 2));
+        song6Pattern.add(new TileBeat(84000, 1));
+        song6Pattern.add(new TileBeat(84250, 2));
+
+        // 내가 원하는 건 너도 원하고 84~87
+        song6Pattern.add(new TileBeat(84500, 3));
+        song6Pattern.add(new TileBeat(84800, 0));
+
+        song6Pattern.add(new TileBeat(85100, 1));
+        song6Pattern.add(new TileBeat(85400, 2));
+        song6Pattern.add(new TileBeat(85700, 0));
+
+        song6Pattern.add(new TileBeat(86050, 2));
+
+        song6Pattern.add(new TileBeat(86300, 3));
+        song6Pattern.add(new TileBeat(86550, 1));
+
+        song6Pattern.add(new TileBeat(86800, 2));
+        song6Pattern.add(new TileBeat(87050, 3));
+        song6Pattern.add(new TileBeat(87300, 0));
+
+        // 마주 잡은 두 손을 맹세해 헤이! 87~90
+        song6Pattern.add(new TileBeat(87500, 0));
+        song6Pattern.add(new TileBeat(87750, 2));
+
+        song6Pattern.add(new TileBeat(88000, 3));
+        song6Pattern.add(new TileBeat(88250, 0));
+
+        song6Pattern.add(new TileBeat(88500, 1));
+
+        song6Pattern.add(new TileBeat(88800, 2));
+        song6Pattern.add(new TileBeat(89050, 0));
+
+        song6Pattern.add(new TileBeat(89300, 3));
+        song6Pattern.add(new TileBeat(89550, 1));
+        song6Pattern.add(new TileBeat(89800, 2));
+
+        song6Pattern.add(new TileBeat(90050, 0));
+        song6Pattern.add(new TileBeat(90300, 2));
+
+        // 힘을 내봐 90~91
+        song6Pattern.add(new TileBeat(90500, 0));
+        song6Pattern.add(new TileBeat(90650, 1));
+
+        song6Pattern.add(new TileBeat(90900, 3));
+        song6Pattern.add(new TileBeat(91250, 2));
+
+        // 그래 힘을 내봐 91~93
+        song6Pattern.add(new TileBeat(91500, 2));
+        song6Pattern.add(new TileBeat(91750, 1));
+
+        song6Pattern.add(new TileBeat(92100, 0));
+        song6Pattern.add(new TileBeat(92500, 1));
+
+        song6Pattern.add(new TileBeat(92800, 3));
+        song6Pattern.add(new TileBeat(93100, 2));
+
+        // 용기를 내봐 93~94
+        song6Pattern.add(new TileBeat(93500, 0));
+        song6Pattern.add(new TileBeat(93650, 2));
+        song6Pattern.add(new TileBeat(93800, 1));
+
+        song6Pattern.add(new TileBeat(94050, 3));
+        song6Pattern.add(new TileBeat(94300, 2));
+
+        // 그래 용기를 내봐 94~97
+        song6Pattern.add(new TileBeat(94500, 2));
+        song6Pattern.add(new TileBeat(94900, 3));
+
+        song6Pattern.add(new TileBeat(95300, 0));
+        song6Pattern.add(new TileBeat(95700, 2));
+        song6Pattern.add(new TileBeat(96100, 1));
+
+        song6Pattern.add(new TileBeat(96550, 3));
+        song6Pattern.add(new TileBeat(97000, 2));
+
+        // 피카츄 피카츄 97~99
+        song6Pattern.add(new TileBeat(97500, 1));
+        song6Pattern.add(new TileBeat(97800, 2));
+        song6Pattern.add(new TileBeat(98100, 3));
+
+        song6Pattern.add(new TileBeat(98450, 1));
+        song6Pattern.add(new TileBeat(98800, 2));
+        song6Pattern.add(new TileBeat(99150, 3));
+
+        // 피카피카 피카츄 99~100.5
+        song6Pattern.add(new TileBeat(99500, 0));
+        song6Pattern.add(new TileBeat(99700, 1));
+        song6Pattern.add(new TileBeat(99900, 0));
+        song6Pattern.add(new TileBeat(100100, 1));
+
+        song6Pattern.add(new TileBeat(100350, 1));
+        song6Pattern.add(new TileBeat(100600, 2));
+        song6Pattern.add(new TileBeat(100850, 3));
+
+     // 피카피카 피카츄 100.5~102
+        song6Pattern.add(new TileBeat(101000, 0));
+        song6Pattern.add(new TileBeat(101200, 1));
+        song6Pattern.add(new TileBeat(101400, 0));
+        song6Pattern.add(new TileBeat(101600, 1));
+
+        song6Pattern.add(new TileBeat(101850, 1));
+        song6Pattern.add(new TileBeat(102100, 2));
+        song6Pattern.add(new TileBeat(102350, 3));
+
+        // 아름다운 우리 추억 기억해 102~105
+        song6Pattern.add(new TileBeat(102500, 0));
+        song6Pattern.add(new TileBeat(102700, 2));
+        song6Pattern.add(new TileBeat(102900, 1));
+        song6Pattern.add(new TileBeat(103100, 3));
+
+        song6Pattern.add(new TileBeat(103350, 1));
+        song6Pattern.add(new TileBeat(103600, 2));
+
+        song6Pattern.add(new TileBeat(103900, 3));
+        song6Pattern.add(new TileBeat(104300, 0));
+
+        song6Pattern.add(new TileBeat(104600, 3));
+        song6Pattern.add(new TileBeat(104900, 2));
+        song6Pattern.add(new TileBeat(105200, 1));
+
+        // 피카피카 피카츄 105~106.5
+        song6Pattern.add(new TileBeat(105500, 0));
+        song6Pattern.add(new TileBeat(105700, 1));
+        song6Pattern.add(new TileBeat(105900, 0));
+        song6Pattern.add(new TileBeat(106100, 1));
+
+        song6Pattern.add(new TileBeat(106300, 1));
+        song6Pattern.add(new TileBeat(106550, 2));
+        song6Pattern.add(new TileBeat(106800, 3));
+
+        // 피카피카 피카츄 106.5~108
+        song6Pattern.add(new TileBeat(107000, 0));
+        song6Pattern.add(new TileBeat(107200, 1));
+        song6Pattern.add(new TileBeat(107400, 0));
+        song6Pattern.add(new TileBeat(107600, 1));
+
+        song6Pattern.add(new TileBeat(107800, 1));
+        song6Pattern.add(new TileBeat(108050, 2));
+        song6Pattern.add(new TileBeat(108300, 3));
+
+        // 우리 모두 꿈을 위해 108~111
+        song6Pattern.add(new TileBeat(108500, 2));
+        song6Pattern.add(new TileBeat(108850, 2));
+
+        song6Pattern.add(new TileBeat(109200, 3));
+        song6Pattern.add(new TileBeat(109550, 3));
+
+        song6Pattern.add(new TileBeat(109900, 0));
+        song6Pattern.add(new TileBeat(110250, 0));
+
+        song6Pattern.add(new TileBeat(110700, 2));
+        song6Pattern.add(new TileBeat(111100, 0));
+
+        // 피카츄 111~112
+        song6Pattern.add(new TileBeat(111500, 0));
+        song6Pattern.add(new TileBeat(111900, 1));
+        song6Pattern.add(new TileBeat(112300, 2));
         // 추가 타일 비트
         patterns.put("src/resources/pocketmon.wav", song6Pattern);
         
         // 7. 카드캡터 체리
         List<TileBeat> song7Pattern = new ArrayList<>();
-     // 브금 1~14초
+        // 브금 1~14초
         song7Pattern.add(new TileBeat(1000, 0)); 
         song7Pattern.add(new TileBeat(3000, 1)); 
         song7Pattern.add(new TileBeat(4000, 0)); 
