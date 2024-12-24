@@ -122,9 +122,33 @@ public class MusicList extends JPanel {//음악 리스트
             }
         });
 
+     // Purchase 버튼 추가 
+        purchaseButton = new JButton("Purchase"); 
+        purchaseButton.setFont(new Font("Arial", Font.BOLD, 30)); 
+        purchaseButton.setPreferredSize(new Dimension(150, 50)); 
+        purchaseButton.addActionListener(e -> {
+        	if (!selectedSongPath.isEmpty()) {
+        		Boolean isLocked = lockedSongs.get(songTitles[songSelector.getSelectedIndex()]); 
+        		if (isLocked != null && isLocked.booleanValue()) { // 재화가 충분히 있는지 확인 
+        			if (cost.getCost() >= unlock) { // 재화가 충분한 경우 잠금 해제 
+        				spendCurrency(unlock); 
+        				lockedSongs.put(songTitles[songSelector.getSelectedIndex()], false); 
+        				JOptionPane.showMessageDialog(this, songTitles[songSelector.getSelectedIndex()] + "잠금 해제 되었습니다"); 
+        			} else {
+        				// 재화가 부족한 경우 메시지 표시 
+        				JOptionPane.showMessageDialog(this, "곡을 잠금 해제하기에는 재화가 부족합니다"); 
+        			} 
+        		} else { 
+        			JOptionPane.showMessageDialog(this, "이미 잠금 해제된 곡입니다."); 
+        	    } 
+        	} else { 
+        		JOptionPane.showMessageDialog(this, "곡을 선택해 주세요"); 
+        	} 
+        });
+        
         // 패널 구성
         JPanel listPanel = new JPanel(new BorderLayout());
-        listPanel.add(new JLabel("Select a Song:", JLabel.CENTER), BorderLayout.NORTH);
+        listPanel.add(new JLabel("곡 목록:", JLabel.CENTER), BorderLayout.NORTH);
         listPanel.add(scrollPane, BorderLayout.CENTER);
 
         JPanel imagePanel = new JPanel(new BorderLayout());
@@ -133,6 +157,7 @@ public class MusicList extends JPanel {//음악 리스트
 
         JPanel buttonPanel = new JPanel(new FlowLayout());
         buttonPanel.add(startButton);
+        buttonPanel.add(purchaseButton); // Purchase 버튼 추가
 
         add(listPanel, BorderLayout.EAST);
         add(imagePanel, BorderLayout.CENTER);
@@ -172,7 +197,6 @@ public class MusicList extends JPanel {//음악 리스트
     // 재화 증가 메서드
     public void addCost(int amount) {
     	cost.addCost(amount); 
-    	System.out.println("addCurrency called. Current cost: " + cost.getCost());
         updateCostDisplay();  // UI 업데이트
     }
 
@@ -188,27 +212,9 @@ public class MusicList extends JPanel {//음악 리스트
         }
     }
 
-    // 노래 잠금 해제 메서드
-    public boolean unlockSong(String songTitle) {
-        if (lockedSongs.containsKey(songTitle) && lockedSongs.get(songTitle)) {
-            if (spendCurrency(unlock)) {
-                lockedSongs.put(songTitle, false);  // 노래 잠금 해제
-                JOptionPane.showMessageDialog(this, songTitle + " unlocked!");
-                return true;
-            }
-        } else if (!lockedSongs.containsKey(songTitle)) {
-            JOptionPane.showMessageDialog(this, "Song not found.");
-        } else {
-            JOptionPane.showMessageDialog(this, songTitle + " is already unlocked!");
-        }
-        return false;
-    }
-
-    
     // 현재 재화 상태 갱신
     private void updateCostDisplay() {
     	costLabel.setText("Cost: " + cost.getCost());
-    	System.out.println("updateCurrencyDisplay called. Updated cost: " + cost.getCost());
     	
     }
     
