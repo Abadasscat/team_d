@@ -14,7 +14,7 @@ public class Main extends JFrame {//화면 띄우기
 
         // TitleScreen과 SongSelectionScreen 추가
         Title title = new Title(this);
-        MusicList musiclist = new MusicList(this);
+        musiclist = new MusicList(this);
 
         cardPanel.add(title, "Title");
         cardPanel.add(musiclist, "MusicList");

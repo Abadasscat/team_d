@@ -224,10 +224,10 @@ public class MusicList extends JPanel {//음악 리스트
         return lockedSongs.getOrDefault(songTitle, true);
     }
     
-    /*
+    
     // cost 값 반환 메서드 public 
     int getCost() {
     	return cost.getCost(); 
     }
-    */
+    
 }
