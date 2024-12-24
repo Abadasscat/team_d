@@ -13,7 +13,7 @@ public class MusicList extends JPanel {//음악 리스트
 
     private Cost cost = new Cost();
 	private Map<String, Boolean> lockedSongs = new HashMap<>();  // 잠금 상태 관리
-	private final int unlock= 5;  // 잠금 해제에 필요한 재화 개수
+	private final int unlock= 300;  // 잠금 해제에 필요한 재화 개수
     private JLabel costLabel;  // 재화 표시 레이블
     
     public MusicList(Main main) {
