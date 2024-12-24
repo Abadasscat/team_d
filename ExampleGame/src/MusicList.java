@@ -166,7 +166,7 @@ public class MusicList extends JPanel {//음악 리스트
     }
     
     private void updateLevel(String level) {
-    	levelLabel.setText("난이도: " + level); 
+    	levelLabel.setText("Level: " + level); 
     }
     
     // 재화 증가 메서드
