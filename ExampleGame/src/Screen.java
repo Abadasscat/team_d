@@ -56,7 +56,7 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{//�
 	   // 노래 종료 시 뮤직 리스트로 이동하는 콜백 등록
         musicPlayer.End(() -> {
         	 showScorePopup();  // 점수 창 표시
-            //stage = 1;  // MusicList 화면으로 전환
+             stage = 1;  // MusicList 화면으로 전환
         });
 	    
 		addComponentListener(this);
