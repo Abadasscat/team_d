@@ -48,17 +48,23 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{//�
 		this.main = main;//초기화
 		this.musicList = musicList;
 		
+		// 노래에 맞는 패턴 가져오기 
+		List<TileBeat> tilePattern = patternManager.getPattern(songPath); 
+		if (tilePattern.isEmpty()) { 
+			tilePattern = patternManager2.getPattern(songPath); 
+			if (tilePattern.isEmpty()) { 
+				JOptionPane.showMessageDialog(this, "해당 노래에 대한 패턴을 찾을 수 없습니다."); 
+				return;
+			}
+		} pattern.setPattern(tilePattern);
+		
+		/*
 		// 노래에 맞는 패턴 가져오기
-		List<TileBeat> tilePattern = patternManager.getPattern(songPath);
-		pattern.setPattern(tilePattern);
-		List<TileBeat> tilePattern2 = patternManager2.getPattern(songPath);
-		pattern.setPattern(tilePattern2);
-		
-
-		    
-		    
-		
-
+	    List<TileBeat> tilePattern = patternManager.getPattern(songPath);
+	    pattern.setPattern(tilePattern);
+	    List<TileBeat> tilePattern2 = patternManager2.getPattern(songPath);
+	    pattern.setPattern(tilePattern2);
+	    */
 		
 	    musicPlayer = new SimpleMusicPlayer(songPath);
 	    

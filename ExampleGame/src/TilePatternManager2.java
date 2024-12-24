@@ -1,3 +1,4 @@
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
@@ -549,7 +550,7 @@ public class TilePatternManager2 {
         song6Pattern.add(new TileBeat(111900, 1));
         song6Pattern.add(new TileBeat(112300, 2));
         // 추가 타일 비트
-        patterns.put("src/resources/pocketmon.wav", song6Pattern);
+        patterns.put("res/pocketmon.wav", song6Pattern);
         
         // 7. 카드캡터 체리
         List<TileBeat> song7Pattern = new ArrayList<>();
@@ -1044,7 +1045,7 @@ public class TilePatternManager2 {
         song7Pattern.add(new TileBeat(132000, 1)); 
         song7Pattern.add(new TileBeat(133000, 2)); 
         // 추가 타일 비트
-        patterns.put("src/resources/Card Captor Cherry.wav", song7Pattern);
+        patterns.put("res/Card Captor Cherry.wav", song7Pattern);
         
         // 8. 다시 만난 세계
         List<TileBeat> song8Pattern = new ArrayList<>();
@@ -1597,7 +1598,7 @@ public class TilePatternManager2 {
         song8Pattern.add(new TileBeat(254200, 1));  
         song8Pattern.add(new TileBeat(254700, 1));  
         song8Pattern.add(new TileBeat(255000, 2));  
-        patterns.put("src/resources/Again meet world.wav", song8Pattern);
+        patterns.put("res/Again meet world.wav", song8Pattern);
         
         // 9. 애상
         List<TileBeat> song9Pattern = new ArrayList<>();
@@ -2009,7 +2010,7 @@ public class TilePatternManager2 {
         song9Pattern.add(new TileBeat(211110, 0));
         song9Pattern.add(new TileBeat(211572, 2));
         song9Pattern.add(new TileBeat(212000, 1));
-        patterns.put("src/resources/sorrow.wav", song9Pattern);
+        patterns.put("res/sorrow.wav", song9Pattern);
         
         // 10. 개화
         List<TileBeat> song10Pattern = new ArrayList<>();
@@ -2534,7 +2535,7 @@ public class TilePatternManager2 {
         song10Pattern.add(new TileBeat(244200, 3));  
         song10Pattern.add(new TileBeat(244700, 3));  
 
-        patterns.put("src/resources/Flowering.wav", song10Pattern);
+        patterns.put("res/Flowering.wav", song10Pattern);
 
         // 11. 캐롤
         List<TileBeat> song11Pattern = new ArrayList<>();
@@ -3082,7 +3083,7 @@ public class TilePatternManager2 {
         song11Pattern.add(new TileBeat(254700, 1));  
         song11Pattern.add(new TileBeat(255000, 2));  
 
-        patterns.put("src/resources/Last Christmas.wav", song11Pattern);
+        patterns.put("res/Last Christmas.wav", song11Pattern);
         
         // 12. The Drum
         List<TileBeat> song12Pattern = new ArrayList<>();
@@ -3465,7 +3466,7 @@ public class TilePatternManager2 {
         song12Pattern.add(new TileBeat(185344, 1));
         song12Pattern.add(new TileBeat(185813, 2));
         song12Pattern.add(new TileBeat(186000, 0));
-        patterns.put("src/resources/The Drum.wav", song12Pattern);
+        patterns.put("res/The Drum.wav", song12Pattern);
         
         // 필요한 만큼 더 추가
     }
@@ -3474,4 +3475,5 @@ public class TilePatternManager2 {
         return patterns.getOrDefault(songName, new ArrayList<>());
     }
 }
+
 

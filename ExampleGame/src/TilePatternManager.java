@@ -152,7 +152,7 @@ public class TilePatternManager {//타일 패턴 입력하는 곳
         song1Pattern.add(new TileBeat(179500, 2));
         song1Pattern.add(new TileBeat(179500, 3));
         // 추가 타일 비트
-        patterns.put("src/resources/Firefly.wav", song1Pattern);
+        patterns.put("res/Firefly.wav", song1Pattern);
         
         // 2. Lemon
         List<TileBeat> song2Pattern = new ArrayList<>();
@@ -665,7 +665,7 @@ public class TilePatternManager {//타일 패턴 입력하는 곳
         song2Pattern.add(new TileBeat(253500, 0));
         song2Pattern.add(new TileBeat(254000, 3));
         //  추가 타일 비트
-        patterns.put("src/resources/Lemon.wav", song2Pattern);
+        patterns.put("res/Lemon.wav", song2Pattern);
         
         // 3. Welcome to the Show
         List<TileBeat> song3Pattern = new ArrayList<>();
@@ -1104,7 +1104,7 @@ public class TilePatternManager {//타일 패턴 입력하는 곳
         song3Pattern.add(new TileBeat(216500, 3));
         song3Pattern.add(new TileBeat(217000, 1));
         //  추가 타일 비트
-        patterns.put("src/resources/Welcome to the Show.wav", song3Pattern);
+        patterns.put("res/Welcome to the Show.wav", song3Pattern);
         
         // 4. 베텔기우스
         List<TileBeat> song4Pattern = new ArrayList<>();
@@ -1485,7 +1485,7 @@ public class TilePatternManager {//타일 패턴 입력하는 곳
         song4Pattern.add(new TileBeat(234300, 3));
         song4Pattern.add(new TileBeat(235000, 0));
         song4Pattern.add(new TileBeat(235700, 1));
-        patterns.put("src/resources/BETELGEUSE.wav", song4Pattern);
+        patterns.put("res/BETELGEUSE.wav", song4Pattern);
         
         // 5. 교가
         List<TileBeat> song5Pattern = new ArrayList<>();
@@ -1519,7 +1519,7 @@ public class TilePatternManager {//타일 패턴 입력하는 곳
         song4Pattern.add(new TileBeat(83800, 2)); //83초 길이 
         song4Pattern.add(new TileBeat(84800, 1)); //84초 빛나리 
         // 추가 타일 비트
-        patterns.put("src/resources/MNUSS.wav", song5Pattern);
+        patterns.put("res/MNUSS.wav", song5Pattern);
         
 
     }
