@@ -166,6 +166,7 @@ public class MusicList extends JPanel {//음악 리스트
         for (String song : songTitles) {
             lockedSongs.put(song, true);  // 모든 노래 잠금
         }
+        lockedSongs.put("1. Firefly", false);  // 기본 해제 상태
         lockedSongs.put("6. pocketmon", false);  // 기본 해제 상태
         
         // UI 초기화

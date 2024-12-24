@@ -28,6 +28,7 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{//�
 	private Duck duck=new Duck();
 	private TilePattern pattern = new TilePattern(note);
 	private TilePatternManager patternManager = new TilePatternManager(); 
+	private TilePatternManager2 patternManager2 = new TilePatternManager2(); 
 	//private MusicList musicList = new MusicList(main);
 	private SimpleMusicPlayer musicPlayer; // 선택된 노래 로드; // 음악 플레이어	
 	private Score score = new Score();
@@ -48,8 +49,16 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{//�
 		this.musicList = musicList;
 		
 		// 노래에 맞는 패턴 가져오기
-	    List<TileBeat> tilePattern = patternManager.getPattern(songPath);
-	    pattern.setPattern(tilePattern);
+		List<TileBeat> tilePattern = patternManager.getPattern(songPath);
+		pattern.setPattern(tilePattern);
+		List<TileBeat> tilePattern2 = patternManager2.getPattern(songPath);
+		pattern.setPattern(tilePattern2);
+		
+
+		    
+		    
+		
+
 		
 	    musicPlayer = new SimpleMusicPlayer(songPath);
 	    
