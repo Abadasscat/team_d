@@ -8,6 +8,7 @@ public class MusicList extends JPanel {//음악 리스트
     private JLabel imageLabel;
     private JLabel levelLabel;
     private JButton startButton;
+    private JButton purchaseButton;
     private String selectedSongPath = "";
 
     private Cost cost = new Cost();
@@ -16,7 +17,6 @@ public class MusicList extends JPanel {//음악 리스트
     private JLabel costLabel;  // 재화 표시 레이블
     
     public MusicList(Main main) {
-    	//this.main = main; 
         setLayout(new BorderLayout());
 
         // 음악 파일 목록
@@ -118,7 +118,7 @@ public class MusicList extends JPanel {//음악 리스트
                 }
             	
             } else {
-                JOptionPane.showMessageDialog(this, "Please select a song first.");
+                JOptionPane.showMessageDialog(this, "곡을 선택해 주세요");
             }
         });
 
