@@ -125,7 +125,7 @@ public class MusicList extends JPanel {//음악 리스트
      // Purchase 버튼 추가 
         purchaseButton = new JButton("Purchase"); 
         purchaseButton.setFont(new Font("Arial", Font.BOLD, 30)); 
-        purchaseButton.setPreferredSize(new Dimension(150, 50)); 
+        purchaseButton.setPreferredSize(new Dimension(170, 50)); 
         purchaseButton.addActionListener(e -> {
         	if (!selectedSongPath.isEmpty()) {
         		Boolean isLocked = lockedSongs.get(songTitles[songSelector.getSelectedIndex()]); 
@@ -166,7 +166,7 @@ public class MusicList extends JPanel {//음악 리스트
         for (String song : songTitles) {
             lockedSongs.put(song, true);  // 모든 노래 잠금
         }
-        lockedSongs.put("1. Firefly", false);  // 기본 해제 상태
+        lockedSongs.put("6. pocketmon", false);  // 기본 해제 상태
         
         // UI 초기화
         costLabel = new JLabel("Cost: " + cost.getCost(), JLabel.CENTER);
