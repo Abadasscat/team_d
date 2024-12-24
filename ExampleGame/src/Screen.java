@@ -165,6 +165,10 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{//�
 	            bg.drawString(lastResult, dim.width / 24*7, dim.height / 4);
 	        }
 	        
+	        bg.setFont(new Font("Arial", Font.BOLD, 48));
+        	bg.setColor(Color.black);
+        	bg.drawString("Score: " + note.getScore().getScore(), dim.width/7*5, dim.height/5*4);
+        	
 	        
 	        // 점수가 -1500 이하로 떨어지면 stage 변경 
         	if (note.getScore().getScore() <= -1500) {
