@@ -22,15 +22,16 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{//�
 	
 	private Main main;
 	private Title title=new Title(main);
+	private MusicList musicList;
 	private Note note=new Note(getWidth());
 	private DuckHome home=new DuckHome();
 	private Duck duck=new Duck();
 	private TilePattern pattern = new TilePattern(note);
 	private TilePatternManager patternManager = new TilePatternManager(); 
-	private MusicList musicList = new MusicList(main);
+	//private MusicList musicList = new MusicList(main);
 	private SimpleMusicPlayer musicPlayer; // 선택된 노래 로드; // 음악 플레이어	
 	private Score score = new Score();
-	private Cost cost = new Cost();
+	//private Cost cost = new Cost();
 	
 	private int countNumber=0;
 	public int stage = 4;
@@ -42,8 +43,9 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{//�
 	private final long RESULTSHOW = 1000;  // 1초 유지
 	
 	
-	public Screen(Main main, String songPath) {
+	public Screen(Main main, String songPath, MusicList musicList) {
 		this.main = main;//초기화
+		this.musicList = musicList;
 		
 		// 노래에 맞는 패턴 가져오기
 	    List<TileBeat> tilePattern = patternManager.getPattern(songPath);
@@ -112,9 +114,9 @@ public class Screen extends Canvas implements ComponentListener, KeyListener{//�
             // 점수와 재화 추가 로직 
 	        while (finalScore >= 10) {
                 note.getScore().subtractScore(10);  // 점수 차감
-                cost.addCost(1);  // 재화 증가
+                musicList.addCost(1);  // 재화 증가
                 finalScore -= 10;
-                System.out.println("Currency earned! Total: " + cost.getCost());
+                //System.out.println("Currency earned! Total: " + cost.getCost());
             }
 
             // 화면 전환

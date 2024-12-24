@@ -4,6 +4,7 @@ import java.awt.*;
 public class Main extends JFrame {//화면 띄우기
     private CardLayout cardLayout = new CardLayout();
     private JPanel cardPanel = new JPanel(cardLayout);
+    private MusicList musiclist;
     
     public Main() {
         setTitle("리듬 게임");
@@ -28,7 +29,7 @@ public class Main extends JFrame {//화면 띄우기
     }
 
     public void openGameScreen(String songPath) {
-        Screen screen = new Screen(this, songPath);
+        Screen screen = new Screen(this, songPath, musiclist);
         cardPanel.add(screen, "GameScreen");
         cardLayout.show(cardPanel, "GameScreen");
     }

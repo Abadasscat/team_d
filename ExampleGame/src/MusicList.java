@@ -15,6 +15,7 @@ public class MusicList extends JPanel {//음악 리스트
     private JLabel costLabel;  // 재화 표시 레이블
     
     public MusicList(Main main) {
+    	//this.main = main; 
         setLayout(new BorderLayout());
 
         // 음악 파일 목록
@@ -122,7 +123,6 @@ public class MusicList extends JPanel {//음악 리스트
             lockedSongs.put(song, true);  // 모든 노래 잠금
         }
         lockedSongs.put("1. Firefly", false);  // 기본 해제 상태
-
         
         // UI 초기화
         costLabel = new JLabel("Cost: " + cost.getCost(), JLabel.CENTER);
