@@ -21,18 +21,18 @@ public class MusicList extends JPanel {//음악 리스트
 
         // 음악 파일 목록
         String[] songList = {
-                "src/resources/Firefly.wav",
-                "src/resources/Lemon.wav",
-                "src/resources/Welcome to the Show.wav",
-                "src/resources/BETELGEUSE.wav",
-                "src/resources/MNUSS.wav",
-                "src/resources/pocketmon.wav",
-                "src/resources/Card Captor Cherry.wav",
-                "src/resources/Again meet world.wav",
-                "src/resources/sorrow.wav",
-                "src/resources/Flowering.wav",
-                "src/resources/Last Christmas.wav",
-                "src/resources/The Drum.wav"
+                "res/Firefly.wav",
+                "res/Lemon.wav",
+                "res/Welcome to the Show.wav",
+                "res/BETELGEUSE.wav",
+                "res/MNUSS.wav",
+                "res/pocketmon.wav",
+                "res/Card Captor Cherry.wav",
+                "res/Again meet world.wav",
+                "res/sorrow.wav",
+                "res/Flowering.wav",
+                "res/Last Christmas.wav",
+                "res/The Drum.wav"
         };
 
         // 음악 제목 목록 (UI에 표시)
@@ -45,18 +45,18 @@ public class MusicList extends JPanel {//음악 리스트
 
         // 각 노래에 해당하는 이미지 파일 경로
         String[] imagePaths = {
-                "src/Images/firefly.jpg",
-                "src/Images/lemon.jpg",
-                "src/Images/welcome.jpg",
-                "src/Images/BETELGEUSE.jpg",
-                "src/Images/MNUSS.jpg",
-                "src/Images/pocketmon.jpg",
-                "src/Images/Card Captor Cherry.jpg",
-                "src/Images/Again meet world.jpg",
-                "src/Images/sorrow.jpg",
-                "src/Images/Flowering.jpg",
-                "src/Images/Last Christmas.jpg",
-                "src/Images/The Drum.jpg"
+                "res/firefly.jpg",
+                "res/lemon.jpg",
+                "res/welcome.jpg",
+                "res/BETELGEUSE.jpg",
+                "res/MNUSS.jpg",
+                "res/pocketmon.jpg",
+                "res/Card Captor Cherry.jpg",
+                "res/Again meet world.jpg",
+                "res/sorrow.jpg",
+                "res/Flowering.jpg",
+                "res/Last Christmas.jpg",
+                "res/The Drum.jpg"
         };
 
        /// 난이도 목록 
