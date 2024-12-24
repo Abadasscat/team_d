@@ -18,7 +18,7 @@ public class Title extends JPanel {//시작 화면
     	
         try {
             // 이미지 로드
-            image = ImageIO.read(new File("src/Images/main.jpg"));
+            image = ImageIO.read(new File("res/main.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
